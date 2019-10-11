@@ -68,12 +68,34 @@
             "type":"donated"
         }
     ],
+    "categories":[
+        {
+            "id":1,
+            "type":"clothing"
+        },
+        {
+            "id":2,
+            "type":"electronics"
+        },
+        {
+            "id":3,
+            "type":"gear"
+        },
+        {
+            "id":4,
+            "type":"person"
+        },
+        {
+            "id":5,
+            "type":"toy"
+        }
+    ],
     "items":[
         {
             "id":1,
             "itemName":"iPhone 8",
             "date":"2019-08-15",
-            "category":"electronics",
+            "categoryId":"2",
             "photo":"https://ss7.vzw.com/is/image/VerizonWireless/otterbox-defender-series-case-iphone-6-6s-black-77-54158-iset?$device-md$",
             "parkId":1,
             "statusId":1
@@ -82,7 +104,7 @@
             "id":1,
             "itemName":"tent",
             "date":"2019-08-15",
-            "category":"gear",
+            "categoryId":"3",
             "photo":"https://cdn.shopify.com/s/files/1/0004/4652/9572/products/duplex-olive-angle-l_2048x.jpg?v=1554818555",
             "parkId":1,
             "statusId":2
@@ -91,7 +113,7 @@
             "id":1,
             "itemName":"water bottle",
             "date":"2019-08-15",
-            "category":"gear",
+            "categoryId":"3",
             "photo":"https://i.stpost.com/nathan-flipstream-tritan-water-bottle-750ml-in-blue-radiance~p~643jk_01~1500.2.jpg",
             "parkId":2,
             "statusId":3
@@ -100,7 +122,7 @@
             "id":1,
             "itemName":"climbing harness",
             "date":"2019-08-15",
-            "category":"gear",
+            "categoryId":"3",
             "photo":"https://expertclimbers.com/wp-content/uploads/2019/05/Black-Diamond-Momentum-Harness-Kids-750x750.jpg",
             "parkId":3,
             "statusId":3
@@ -109,7 +131,7 @@
             "id":1,
             "itemName":"3-yr old boy",
             "date":"2019-08-15",
-            "category":"person",
+            "categoryId":"4",
             "photo":"https://i2-prod.mirror.co.uk/incoming/article13543374.ece/ALTERNATES/s615/3_Baby-with-avocadoed.jpg",
             "parkId":4,
             "statusId":4
@@ -118,7 +140,7 @@
             "id":1,
             "itemName":"camera",
             "date":"2019-08-15",
-            "category":"electronics",
+            "categoryId":"2",
             "photo":"https://blueprint-api-production.s3.amazonaws.com/uploads/card/image/942170/1dba9c57-5529-43d7-8a33-c4caf6ec9cb9.jpg",
             "parkId":4,
             "statusId":5
@@ -127,7 +149,7 @@
             "id":1,
             "itemName":"stuffed animal",
             "date":"2019-08-15",
-            "category":"toy",
+            "categoryId":"5",
             "photo":"https://dimg.dillards.com/is/image/DillardsZoom/zoom/melissa--doug-penguin-giant-stuffed-animal/05363737_zi.jpg",
             "parkId":5,
             "statusId":5
@@ -136,7 +158,7 @@
             "id":1,
             "itemName":"hiking stick",
             "date":"2019-08-15",
-            "category":"gear",
+            "categoryId":"3",
             "photo":"https://www.dhresource.com/0x0s/f2-albu-g7-M00-5F-33-rBVaSltHScaAS_HRAACo74WRx_A150.jpg/outdoor-adjustable-hiking-walking-sticks.jpg",
             "parkId":3,
             "statusId":2
