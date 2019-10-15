@@ -1,10 +1,11 @@
-import { Jumbotron } from "react-bootstrap";
+import React, { Component } from "react";
+import {Jumbotron, Button} from "react-bootstrap";
 
 class Confirmation extends Component {
   render() {
     return (
       <>
-        // from bootstrap
+        {/* from bootstrap */}
         <Jumbotron>
           <h1>This page confirms your submission.</h1>
           <p>
@@ -20,4 +21,5 @@ class Confirmation extends Component {
     );
   }
 }
+
 export default Confirmation;

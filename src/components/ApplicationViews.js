@@ -1,20 +1,20 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
-import { Navbar } from "../components/navbar/Navbar";
-import { Home } from "../components/home/Home";
-import { Login } from "../components/login/Login";
-import { ParkHome } from "../components/parkhome/ParkHome";
-import { ItemsList } from "../components/parkhome/ItemsList";
-import { VisitorForm } from "../components/visitors/VisitorForm";
+// import NavBar from "../components/navbar/Navbar";
+import Home from "../components/home/Home";
+import Login from "../components/login/Login";
+import ParkHome from "../components/parkhome/ParkHome";
+import ItemsList from "../components/parkhome/ItemsList";
+import VisitorForm from "../components/visitors/VisitorForm";
 
 class ApplicationViews extends Component {
-  isAuthenticated = () => localStorage.getItem("userId") !== null;
+  // isAuthenticated = () => localStorage.getItem("userId") !== null;
 
   render() {
     return (
       <React.Fragment>
         <Route
-          path="/"
+          path="/home"
           render={props => {
             return <Home {...props} />;
           }}
@@ -42,11 +42,19 @@ class ApplicationViews extends Component {
         />
 
         <Route
+          exact
           path="/visitorform"
           render={props => {
             return <VisitorForm {...props} />;
           }}
         />
+
+        {/* <Route
+          path="/visitorform/confirm"
+          render={props => {
+            return <VisitorConfirm {...props} />;
+          }}
+        /> */}
       </React.Fragment>
     );
   }

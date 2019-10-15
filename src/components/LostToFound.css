@@ -1,0 +1,41 @@
+/* home background img */
+#backgroundHome{
+    width: 80%;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+/* home text img container */
+.background-container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  /* Centered text */
+.centered-text {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2em;
+    font-style: oblique;
+  }
+  /* home containers border and margin */
+  .home-containers {
+      border: 3px solid black;
+      margin: 7%
+  }
+  /* home cards in containers spacing */
+  .home-items {
+      margin:3%;
+  }
+  /* container for visitor lost and found form */
+  #visitor-form-container{
+      border: 2px solid black;
+      padding: 3%;
+      margin: 12%;
+      margin-top:1%
+  }
