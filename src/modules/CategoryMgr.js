@@ -9,7 +9,7 @@ export default {
   //fetch all categories
   getAll() {
     return fetch(
-      `${remoteURL}/categories}`
+      `${remoteURL}/categories`
     ).then(result => result.json());
   },
 
