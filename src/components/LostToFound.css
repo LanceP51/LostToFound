@@ -1,17 +1,22 @@
 /* home background img */
 #backgroundHome{
-    width: 80%;
+    width: 70%;
     border-radius: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 /* home text img container */
 .background-container {
     position: relative;
     text-align: center;
     color: white;
+  }
+  /* home page slogan image position */
+  #slogan-img{
+      width: 115%;
+      margin-left: -15%
   }
   /* Centered text */
 .centered-text {
@@ -30,12 +35,59 @@
   }
   /* home cards in containers spacing */
   .home-items {
-      margin:3%;
+      margin:1%;
+  }
+  /* item card margins */
+  #item-card{
+      margin: 2%
   }
   /* container for visitor lost and found form */
   #visitor-form-container{
       border: 2px solid black;
       padding: 3%;
-      margin: 12%;
+      margin: 25%;
       margin-top:1%
   }
+  /* login and register containers */
+  #login-container{
+      border: 3px solid black;
+      margin: 3%;
+      padding: 3%;
+  }
+  #register-container{
+    border: 3px solid black;
+    margin: 3%;
+    padding: 3%;
+}
+/* logout button position */
+#logout-btn{
+    margin: 1%;
+    margin-left: 92%
+}
+/* search and filter layout */
+#search-filter{
+    margin-left: 12%;
+    margin-right: 12%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.sf{
+    margin: 2%;
+}
+/* layout of items on itemlist.js */
+#items-list-page-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1%;
+}
+/* resize item photos */
+#item-pic{
+    width: 70%;
+    height: auto;
+    margin:auto;
+}
+/* still lost container margin */
+#still-lost-container{
+    margin-top: -15%
+}

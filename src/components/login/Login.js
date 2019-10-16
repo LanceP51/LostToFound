@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Form, Col, Button} from "react-bootstrap";
 import ParksMgr from "../../modules/ParksMgr"
+import "../../components/LostToFound.css"
 
 class Login extends Component {
   // Set initial state
@@ -34,6 +35,7 @@ class Login extends Component {
     return (
       <>
         {/* from bootstrap // login */}
+        <div id="login-container">
         <h3>Login</h3>
         <Form>
           <Form.Group>
@@ -54,8 +56,9 @@ class Login extends Component {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form>
+        </Form></div>
         {/* register */}
+        <div id="register-container">
         <h3>Register</h3>
         <Form>
           <Form.Row>
@@ -112,7 +115,7 @@ class Login extends Component {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form>
+        </Form></div>
       </>
     );
   }

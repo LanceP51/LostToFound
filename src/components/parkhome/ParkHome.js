@@ -1,8 +1,23 @@
 import React, { Component } from "react";
 import "../../components/LostToFound.css";
 import {Container, Row, Col, Form, Button} from "react-bootstrap"
+import ItemCard from "../items/ItemCard"
+import ItemsMgr from "../../modules/ItemsMgr"
 
 class ParksHome extends Component {
+
+	state = {
+        items: []
+      };
+
+      componentDidMount() {
+        ItemsMgr.getStillLost().then(items => {
+          this.setState({
+            items: items
+          });
+        });
+      }
+
 	render() {
 		return (
 			<>
@@ -45,13 +60,14 @@ class ParksHome extends Component {
 			  </Form>
 			  <Button onClick={this.buildItem} type="submit">Button</Button>
 			  </div>
-			  <div>
+			  <div id="still-lost-container">
 			  <Container className="home-containers">
 			<h2> Still Lost</h2>
           <Row className="home-items">
-            <Col>1 of 3</Col>
-            <Col>2 of 3</Col>
-            <Col>3 of 3</Col>
+            <Col id="items-list-page-container">
+                {this.state.items.map(singleItem => (
+                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                ))}</Col>
           </Row>
         </Container></div></>
 		);

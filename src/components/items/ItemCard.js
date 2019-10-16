@@ -1,13 +1,14 @@
-import Card from "react-bootstrap";
-import { Component } from "react";
+import React, { Component } from "react";
+import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
+import "../LostToFound.css"
 
-class Card extends Component {
+class ItemCard extends Component {
   render() {
     return (
       <>
         {/* from react-bootstrap */}
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={this.props.ItemProp.photo} />
+        <Card id="item-card" style={{ width: "18rem" }}>
+          <Card.Img id="item-pic" variant="top" src={this.props.ItemProp.photo} />
           <Card.Body>
             <Card.Title>{this.props.ItemProp.itemName}</Card.Title>
           </Card.Body>
@@ -18,7 +19,7 @@ class Card extends Component {
             <ListGroupItem>{this.props.ItemProp.statusId}</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Edit</Card.Link>
+            <Card.Link href={`/items/${this.props.ItemProp.id}/edit`}>Edit</Card.Link>
             <Card.Link href="#">Delete</Card.Link>
           </Card.Body>
         </Card>
@@ -27,4 +28,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default ItemCard;

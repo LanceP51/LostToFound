@@ -13,6 +13,27 @@ export default {
     ).then(result => result.json());
   },
 
+  //fetch claimed items
+  getClaimed() {
+    return fetch(
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=3`
+    ).then(result => result.json());
+  },
+
+  //fetch donated items
+  getDonated() {
+    return fetch(
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=5`
+    ).then(result => result.json());
+  },
+
+  //fetch still lost items
+  getStillLost() {
+    return fetch(
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=1`
+    ).then(result => result.json());
+  },
+
   // list a new item
   post(newItem) {
     return fetch(`${remoteURL}/items`, {

@@ -1,32 +1,56 @@
 import React, { Component } from "react";
 import backgroundPhoto from "./mount-cascades-park.jpg";
+import slogan from "./slogan.png"
 import "../../components/LostToFound.css";
 import {Container, Row, Col} from "react-bootstrap"
+import ItemCard from "../items/ItemCard"
+import ItemsMgr from "../../modules/ItemsMgr"
 
 class Home extends Component {
+
+  state = {
+    claimedItems: [],
+    donatedItems: []
+  };
+
+  componentDidMount() {
+    ItemsMgr.getClaimed().then(items => {
+      this.setState({
+        claimedItems: items
+      });
+    });
+    ItemsMgr.getDonated().then(items => {
+      this.setState({
+        donatedItems: items
+      });
+    });
+  }
+
   render() {
     return (
       <>
-        <div class="background-container">
+        <div className="background-container">
           <img id="backgroundHome" src={backgroundPhoto} alt="mountain"></img>
-          <h4 class="centered-text">
-            Let us know if you left something behind at your last park visit! We would love to help!
+          <h4 className="centered-text">
+            <img id="slogan-img" src={slogan} alt="slogan"></img>
           </h4>
         </div>
         <Container className="home-containers">
 			<h2> Claimed Items</h2>
           <Row className="home-items">
-            <Col>1 of 3</Col>
-            <Col>2 of 3</Col>
-            <Col>3 of 3</Col>
+            <Col id="items-list-page-container">
+                {this.state.claimedItems.map(singleItem => (
+                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                ))}</Col>
           </Row>
         </Container>
 		<Container className="home-containers">
 			<h2> Donated Items</h2>
           <Row className="home-items">
-            <Col>1 of 3</Col>
-            <Col>2 of 3</Col>
-            <Col>3 of 3</Col>
+            <Col id="items-list-page-container">
+                {this.state.donatedItems.map(singleItem => (
+                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                ))}</Col>
           </Row>
         </Container>
       </>
