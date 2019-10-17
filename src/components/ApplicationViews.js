@@ -6,6 +6,7 @@ import Login from "../components/login/Login";
 import ParkHome from "../components/parkhome/ParkHome";
 import ItemsList from "../components/parkhome/ItemsList";
 import VisitorForm from "../components/visitors/VisitorForm";
+import Confirmation from "../components/visitors/VisitorConfirm"
 
 class ApplicationViews extends Component {
   // isAuthenticated = () => localStorage.getItem("userId") !== null;
@@ -13,6 +14,13 @@ class ApplicationViews extends Component {
   render() {
     return (
       <React.Fragment>
+        <Route
+          exact path="/"
+          render={props => {
+            return <Home {...props} />;
+          }}
+        />
+
         <Route
           path="/home"
           render={props => {
@@ -49,12 +57,12 @@ class ApplicationViews extends Component {
           }}
         />
 
-        {/* <Route
-          path="/visitorform/confirm"
+        <Route
+          exact path="/visitorform/confirm"
           render={props => {
-            return <VisitorConfirm {...props} />;
+            return <Confirmation {...props} />;
           }}
-        /> */}
+        />
       </React.Fragment>
     );
   }

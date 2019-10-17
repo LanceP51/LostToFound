@@ -52,7 +52,7 @@ class VisitorForm extends Component {
       };
 
       // post the listing and redirect user to home (and later to a confirmation page)
-      ItemsMgr.post(newListing).then(() => this.props.history.push("/home"));
+      ItemsMgr.post(newListing).then(() => this.props.history.push("/visitorform/confirm"));
     }
   };
 
@@ -98,11 +98,10 @@ class VisitorForm extends Component {
               <Form.Label>Park</Form.Label>
               <Form.Control
                 as="select"
-                multiple
                 id="selectedPark"
                 value={this.state.parkId}
                 onChange={this.handleFieldChange}
-              >
+              ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
                   <option key={park.id} value={park.id}>
                     {park.parkName}
@@ -114,11 +113,12 @@ class VisitorForm extends Component {
               <Form.Label>Category</Form.Label>
               <Form.Control
                 as="select"
-                multiple
+                // multiple
                 id="selectedCategory"
                 value={this.state.categoryId}
                 onChange={this.handleFieldChange}
               >
+                <option>Select a Category</option>
                 {this.state.categoryId.map(category => (
                 <option key={category.id} value={category.id}>
               {category.type}</option>))}
@@ -134,7 +134,7 @@ class VisitorForm extends Component {
             onClick={this.buildListing}
             type="submit"
           >
-            Submit
+            Post
           </Button>
         </div>
       </>

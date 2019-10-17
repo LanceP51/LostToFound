@@ -22,9 +22,7 @@ class Items extends Component {
     return (
       <>
         <div id="logout-btn">
-          <Button variant="secondary" size="sm">
-            Logout
-          </Button>
+        <Button variant="secondary" size="sm" href="home" {...localStorage.clear("activeuser")}>Logout</Button>
         </div>
         <div id="search-filter">
           <Form.Control className="sf" type="text" placeholder="Search" />

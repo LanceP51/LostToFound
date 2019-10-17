@@ -9,7 +9,7 @@ export default {
   //fetch all items
   getAll() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}`
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}_expand=park&_expand=category&_expand=status`
     ).then(result => result.json());
   },
 

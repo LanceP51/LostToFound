@@ -88,6 +88,10 @@
     {
       "id": 5,
       "type": "toy"
+    },
+    {
+      "id": 6,
+      "type": "pet"
     }
   ],
   "items": [
@@ -189,6 +193,28 @@
       "parkId": 2,
       "statusId": 1,
       "id": 2
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Cat",
+      "date": "2019-10-17",
+      "photo": "https://media.mnn.com/assets/images/2014/11/hiking-cat.jpg.653x0_q80_crop-smart.jpg",
+      "categoryId": 6,
+      "parkId": 5,
+      "statusId": 2,
+      "id": 3
+    },
+    {
+      "ownerName": "Darrell",
+      "ownerEmail": "darrell@me.com",
+      "itemName": "Hiking Poles",
+      "date": "2019-10-09",
+      "photo": "https://www.lowergear.com/210-large_default/trekking-poles-pair.jpg",
+      "categoryId": 3,
+      "parkId": 2,
+      "statusId": 1,
+      "id": 4
     }
   ]
 }
