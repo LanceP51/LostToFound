@@ -13,10 +13,10 @@ class ItemCard extends Component {
             <Card.Title>{this.props.ItemProp.itemName}</Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>{this.props.ItemProp.categoryId}</ListGroupItem>
+            <ListGroupItem>{this.props.ItemProp.category.type}</ListGroupItem>
             <ListGroupItem>{this.props.ItemProp.date}</ListGroupItem>
-            <ListGroupItem>{this.props.ItemProp.parkId}</ListGroupItem>
-            <ListGroupItem>{this.props.ItemProp.statusId}</ListGroupItem>
+            <ListGroupItem>{this.props.ItemProp.park.parkName}</ListGroupItem>
+            <ListGroupItem>{this.props.ItemProp.status.type}</ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href={`/items/${this.props.ItemProp.id}/edit`}>Edit</Card.Link>

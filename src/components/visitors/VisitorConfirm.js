@@ -14,7 +14,7 @@ class Confirmation extends Component {
             great outdoors!
           </p>
           <p>
-            <Button variant="primary">Home</Button>
+            <Button href="home" variant="secondary">Home</Button>
           </p>
         </Jumbotron>
       </>

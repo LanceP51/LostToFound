@@ -9,28 +9,28 @@ export default {
   //fetch all items
   getAll() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}_expand=park&_expand=category&_expand=status`
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status`
     ).then(result => result.json());
   },
 
   //fetch claimed items
   getClaimed() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=3`
+      `${remoteURL}/items?_expand=park&_expand=category&_expand=status&statusId=3`
     ).then(result => result.json());
   },
 
   //fetch donated items
   getDonated() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=5`
+      `${remoteURL}/items?_expand=park&_expand=category&_expand=status&statusId=5`
     ).then(result => result.json());
   },
 
   //fetch still lost items
   getStillLost() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&statusId=1`
+      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status&statusId=1`
     ).then(result => result.json());
   },
 
