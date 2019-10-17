@@ -1,33 +1,61 @@
 import React, { Component } from "react";
 import "../../components/LostToFound.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import ItemCard from "../items/ItemCard"
-import ItemsMgr from "../../modules/ItemsMgr"
+import ItemCard from "../items/ItemCard";
+import ItemsMgr from "../../modules/ItemsMgr";
 
 class Items extends Component {
+  state = {
+    items: []
+  };
 
-    state = {
-        items: []
-      };
-
-      componentDidMount() {
-        ItemsMgr.getAll().then(items => {
-          this.setState({
-            items: items
-          });
+  handleDelete = (id) => {
+    //invoke the delete function and reload the page.
+    // const parkId = parseInt(localStorage.getItem("parkId"));
+    ItemsMgr.delete(id).then(() => {
+      ItemsMgr.getAll().then(items => {
+        items.sort((a, b) => new Date(b.date) - new Date(a.date));
+        this.setState({
+          items: items
         });
-      }
+      });
+    });
+  };
+
+  componentDidMount() {
+    ItemsMgr.getAll().then(items => {
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+      this.setState({
+        items: items
+      });
+    });
+  }
 
   render() {
     return (
       <>
         <div id="logout-btn">
-        <Button variant="secondary" size="sm" href="home" {...localStorage.clear("activeuser")}>Logout</Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            href="home"
+            {...localStorage.clear("activeuser")}
+          >
+            Logout
+          </Button>
         </div>
         <div id="search-filter">
           <Form.Control className="sf" type="text" placeholder="Search" />
-          <Form.Control className="sf" type="text" placeholder="Filter Status" />
-          <Form.Control className="sf" type="text" placeholder="Filter Category" />
+          <Form.Control
+            className="sf"
+            type="text"
+            placeholder="Filter Status"
+          />
+          <Form.Control
+            className="sf"
+            type="text"
+            placeholder="Filter Category"
+          />
         </div>
         <div>
           <Container className="home-containers">
@@ -35,7 +63,12 @@ class Items extends Component {
             <Row className="home-items">
               <Col id="items-list-page-container">
                 {this.state.items.map(singleItem => (
-                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                  <ItemCard
+                    deleteProp={this.handleDelete}
+                    key={singleItem.id}
+                    ItemProp={singleItem}
+                    {...this.props}
+                  />
                 ))}
               </Col>
             </Row>

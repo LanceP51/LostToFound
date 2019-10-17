@@ -54,5 +54,13 @@ export default {
       },
       body: JSON.stringify(editedItem)
     }).then(data => data.json());
-  }
+  },
+
+  // delete item
+  delete(id) {
+    return fetch(`${remoteURL}/items/${id}`, {
+        method: "DELETE"
+    })
+    .then(result => result.json())
+  },
 };

@@ -97,28 +97,6 @@
   "items": [
     {
       "id": 1,
-      "itemName": "iPhone 8",
-      "date": "2019-08-15",
-      "categoryId": 2,
-      "photo": "https://ss7.vzw.com/is/image/VerizonWireless/otterbox-defender-series-case-iphone-6-6s-black-77-54158-iset?$device-md$",
-      "parkId": 1,
-      "statusId": 1,
-      "ownerEmail": "john@me.com",
-      "ownerName": "John"
-    },
-    {
-      "id": 1,
-      "itemName": "tent",
-      "date": "2019-08-15",
-      "categoryId": 3,
-      "photo": "https://cdn.shopify.com/s/files/1/0004/4652/9572/products/duplex-olive-angle-l_2048x.jpg?v=1554818555",
-      "parkId": 1,
-      "statusId": 2,
-      "ownerEmail": "",
-      "ownerName": ""
-    },
-    {
-      "id": 1,
       "itemName": "water bottle",
       "date": "2019-08-15",
       "categoryId": 3,
@@ -129,7 +107,7 @@
       "ownerName": ""
     },
     {
-      "id": 1,
+      "id": 2,
       "itemName": "climbing harness",
       "date": "2019-08-15",
       "categoryId": 3,
@@ -140,7 +118,7 @@
       "ownerName": ""
     },
     {
-      "id": 1,
+      "id": 3,
       "itemName": "3-yr old boy",
       "date": "2019-08-15",
       "categoryId": 4,
@@ -151,7 +129,7 @@
       "ownerName": ""
     },
     {
-      "id": 1,
+      "id": 4,
       "itemName": "camera",
       "date": "2019-08-15",
       "categoryId": 2,
@@ -162,7 +140,7 @@
       "ownerName": ""
     },
     {
-      "id": 1,
+      "id": 5,
       "itemName": "stuffed animal",
       "date": "2019-08-15",
       "categoryId": 5,
@@ -173,7 +151,7 @@
       "ownerName": ""
     },
     {
-      "id": 1,
+      "id": 6,
       "itemName": "hiking stick",
       "date": "2019-08-15",
       "categoryId": 3,
@@ -192,7 +170,7 @@
       "categoryId": 2,
       "parkId": 2,
       "statusId": 1,
-      "id": 2
+      "id": 7
     },
     {
       "ownerName": "",
@@ -203,7 +181,7 @@
       "categoryId": 6,
       "parkId": 5,
       "statusId": 2,
-      "id": 3
+      "id": 8
     },
     {
       "ownerName": "Darrell",
@@ -214,7 +192,7 @@
       "categoryId": 3,
       "parkId": 2,
       "statusId": 1,
-      "id": 4
+      "id": 9
     }
   ]
 }

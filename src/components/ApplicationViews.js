@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
 // import NavBar from "../components/navbar/Navbar";
 import Home from "../components/home/Home";
@@ -6,16 +6,17 @@ import Login from "../components/login/Login";
 import ParkHome from "../components/parkhome/ParkHome";
 import ItemsList from "../components/parkhome/ItemsList";
 import VisitorForm from "../components/visitors/VisitorForm";
-import Confirmation from "../components/visitors/VisitorConfirm"
+import Confirmation from "../components/visitors/VisitorConfirm";
 
 class ApplicationViews extends Component {
-  // isAuthenticated = () => localStorage.getItem("userId") !== null;
+  isAuthenticated = () => localStorage.getItem("userId") !== null;
 
   render() {
     return (
       <React.Fragment>
         <Route
-          exact path="/"
+          exact
+          path="/"
           render={props => {
             return <Home {...props} />;
           }}
@@ -38,7 +39,11 @@ class ApplicationViews extends Component {
         <Route
           path="/parkhome"
           render={props => {
-            return <ParkHome {...props} />;
+            return this.isAuthenticated() ? (
+              <ParkHome {...props} />
+            ) : (
+              <Redirect to="/login" />
+            );
           }}
         />
 
@@ -50,7 +55,6 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          exact
           path="/visitorform"
           render={props => {
             return <VisitorForm {...props} />;
@@ -58,9 +62,14 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/visitorform/confirm"
+          exact
+          path="/visitorform/confirm"
           render={props => {
-            return <Confirmation {...props} />;
+            return this.isAuthenticated() ? (
+              <Confirmation {...props} />
+            ) : (
+              <Redirect to="/login" />
+            );
           }}
         />
       </React.Fragment>

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import {Card, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Card, ListGroup, ListGroupItem, Button} from "react-bootstrap";
 import "../LostToFound.css"
 
 class ItemCard extends Component {
+
   render() {
     return (
       <>
@@ -19,8 +20,24 @@ class ItemCard extends Component {
             <ListGroupItem>{this.props.ItemProp.status.type}</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href={`/items/${this.props.ItemProp.id}/edit`}>Edit</Card.Link>
-            <Card.Link href="#">Delete</Card.Link>
+            <Button
+							type="button"
+							onClick={() => {
+								this.props.history.push(`/items/${this.props.ItemProp.id}/edit`);
+							}}
+							variant="link"
+						>
+							Edit
+						</Button>
+						<Button
+							type="button"
+							onClick={() => {
+								this.props.deleteProp(this.props.ItemProp.id);
+							}}
+							variant="link"
+						>
+							Delete
+						</Button>
           </Card.Body>
         </Card>
       </>

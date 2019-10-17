@@ -6,9 +6,17 @@ import "../../components/LostToFound.css"
 class Login extends Component {
   // Set initial state
   state = {
-    email: "",
-    password: ""
+    loginEmail: "",
+    loginPassword: ""
   };
+
+//   state for REGISTER
+//   state = {
+//     name: "",
+//     email: "",
+//     password: "",
+//     loadingStatus: false,
+// };
 
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
@@ -19,17 +27,49 @@ class Login extends Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    const loginEmail = this.state.email
-    const password = this.state.password
-    ParksMgr.getOne(loginEmail).then(user => {
-        if (password === "") { alert("Please enter password") }
-        else if (user[0].password === this.state.password) {
-          localStorage.setItem("userId", user[0].id)
+    const loginEmail = this.state.loginEmail
+    const loginPassword = this.state.loginPassword
+    ParksMgr.getOne(loginEmail).then(park => {
+        if (loginPassword === "") { alert("Please enter password") }
+        else if (park[0].password === loginPassword) {
+          localStorage.setItem("parkId", park[0].id)
         }
         else { (alert("Incorrect password")) }
-      this.props.history.push("/home")
+      this.props.history.push("/login")
     });
   }
+
+  // constructNewUser = evt => {
+  //   evt.preventDefault();
+  //   if (this.state.name === "" || this.state.email === "" || this.state.password === "") {
+  //       window.alert("Please input name, email, and create a password");
+
+  //   } else {
+  //       UserManager.getOne(this.state.name).then(userBack => {
+
+  //           if (userBack[0]) {
+  //               window.alert("User already registered, please use another User Name")
+  //           }
+  //           else {
+  //               this.setState({ loadingStatus: true });
+  //               const newUser = {
+  //                   name: this.state.name,
+  //                   email: this.state.email,
+  //                   password: this.state.password
+  //               }
+
+
+  //               console.log(newUser)
+  //               UserManager.postNewUser(newUser)
+  //                   .then((newUserObject) => {
+  //                       localStorage.setItem("userId", newUserObject.id)
+  //                   }
+  //                   )
+  //                   .then(() => this.props.history.push("/home"));
+  //           }
+  //       })
+    // }
+
 
   render() {
     return (
@@ -40,23 +80,23 @@ class Login extends Component {
         <Form>
           <Form.Group>
             <Form.Label>Email address</Form.Label>
-            <Form.Control id="email" type="email" placeholder="Enter NPS email" />
+            <Form.Control onChange={this.handleFieldChange} id="loginEmail" type="email" placeholder="Enter NPS email" />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-
           <Form.Group>
             <Form.Label>Password</Form.Label>
-            <Form.Control id="password" type="password" placeholder="Password" />
+            <Form.Control onChange={this.handleFieldChange} id="loginPassword" type="password" placeholder="Password" />
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember Me?" />
+            <Form.Check type="checkbox" label="Remember Me" />
           </Form.Group>
           <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form></div>
+
         {/* register */}
         <div id="register-container">
         <h3>Register</h3>
@@ -92,7 +132,7 @@ class Login extends Component {
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
               <Form.Control as="select">
-                <option>Choose...</option>
+                <option>State</option>
                 <option>...</option>
               </Form.Control>
             </Form.Group>
@@ -109,7 +149,7 @@ class Login extends Component {
           </Form.Row>
 
           <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="I am not a robot?" />
+            <Form.Check type="checkbox" label="I am not a robot" />
           </Form.Group>
 
           <Button variant="primary" type="submit">
