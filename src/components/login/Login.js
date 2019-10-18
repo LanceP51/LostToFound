@@ -1,22 +1,24 @@
 import React, { Component } from "react";
-import {Form, Col, Button} from "react-bootstrap";
-import ParksMgr from "../../modules/ParksMgr"
-import "../../components/LostToFound.css"
+import { Form, Col, Button } from "react-bootstrap";
+import ParksMgr from "../../modules/ParksMgr";
+import "../../components/LostToFound.css";
 
 class Login extends Component {
-
   state = {
     parkName: "",
     email: "",
     streetAddress: "",
-    city:"",
-    state:"",
-    phone:"",
+    city: "",
+    state: "",
+    phone: "",
     loadingStatus: false,
-};
+    parkId: [],
+    newPark: {},
+    id: ""
+  };
 
   // Update state whenever an input field is edited
-  handleFieldChange = (evt) => {
+  handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
@@ -36,37 +38,49 @@ class Login extends Component {
   //   });
   // }
 
-  // constructNewUser = evt => {
-  //   evt.preventDefault();
-  //   if (this.state.name === "" || this.state.email === "" || this.state.password === "") {
-  //       window.alert("Please input name, email, and create a password");
+  // build/update new park after Auth0 sign up
+  buildNewPark = evt => {
+    evt.preventDefault();
+    if (
+      this.state.parkName === "" ||
+      this.state.email === "" ||
+      this.state.streetAddress === "" ||
+      this.state.city === "" ||
+      this.state.state === "" ||
+      this.state.phone === ""
+    ) {
+      window.alert("Please fill in all criteria.");
+    } else {
+      this.setState({ loadingStatus: true });
+      const newPark = {
+        aud: this.state.aud,
+        id: this.state.id,
+        name: this.state.name,
+        parkName: this.state.parkName,
+        email: this.state.email,
+        streetAddress: this.state.streetAddress,
+        city: this.state.city,
+        state: this.state.state,
+        phone: this.state.phone
+      };
 
-  //   } else {
-  //       UserManager.getOne(this.state.name).then(userBack => {
+      ParksMgr.update(newPark)
+        .then(() => this.props.history.push("/parkhome"));
+    }
+  };
 
-  //           if (userBack[0]) {
-  //               window.alert("User already registered, please use another User Name")
-  //           }
-  //           else {
-  //               this.setState({ loadingStatus: true });
-  //               const newUser = {
-  //                   name: this.state.name,
-  //                   email: this.state.email,
-  //                   password: this.state.password
-  //               }
-
-
-  //               console.log(newUser)
-  //               UserManager.postNewUser(newUser)
-  //                   .then((newUserObject) => {
-  //                       localStorage.setItem("userId", newUserObject.id)
-  //                   }
-  //                   )
-  //                   .then(() => this.props.history.push("/home"));
-  //           }
-  //       })
-    // }
-
+  componentDidMount() {
+    ParksMgr.getAll().then(parks => {
+      this.setState({
+        parkId: parks
+      });
+    });
+    ParksMgr.getOneBySession().then(park => {
+      this.setState({
+        id: park.id
+      });
+    });
+  }
 
   render() {
     return (
@@ -96,63 +110,67 @@ class Login extends Component {
 
         {/* register */}
         <div id="register-container">
-        <h3>Account Dashboard</h3>
-        <Form>
-          <Form.Row>
-          <Form.Group id="parkName">
-            <Form.Label>Park Name</Form.Label>
-            <Form.Control placeholder="Your National Park" />
-          </Form.Group>
+          <h3>Account Dashboard</h3>
+          <Form>
+            <Form.Row>
+              <Form.Group>
+                <Form.Label>Park Name</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="parkName" placeholder="Your National Park" />
+              </Form.Group>
 
-            <Form.Group as={Col} id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
+              <Form.Group as={Col} >
+                <Form.Label>Email</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="email" type="email" placeholder="Enter email" />
+              </Form.Group>
 
-            {/* <Form.Group as={Col} controlId="formGridPassword">
+              {/* <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group> */}
-          </Form.Row>
 
-          <Form.Group id="streeAddress">
-            <Form.Label>Address</Form.Label>
-            <Form.Control placeholder="1234 Main St" />
-          </Form.Group>
-
-          <Form.Row>
-            <Form.Group as={Col} id="city">
-              <Form.Label>City</Form.Label>
-              <Form.Control />
+            </Form.Row>
+            <Form.Group >
+              <Form.Label>Address</Form.Label>
+              <Form.Control onChange={this.handleFieldChange} id="streetAddress" placeholder="1234 Main St" />
             </Form.Group>
 
-            <Form.Group as={Col} id="state">
-              <Form.Label>State</Form.Label>
-              <Form.Control as="select">
-                <option>State</option>
-                <option>...</option>
-              </Form.Control>
+            <Form.Row>
+              <Form.Group as={Col} >
+                <Form.Label>City</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="city" />
+              </Form.Group>
+
+              <Form.Group as={Col} >
+                <Form.Label>State</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="state" as="select">
+                  <option>State</option>
+                  {this.state.parkId.map(park => (
+                    <option key={park.id} value={park.id}>
+                      {park.state}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              <Form.Group as={Col} >
+                <Form.Label>Zip</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="zip" />
+              </Form.Group>
+
+              <Form.Group as={Col} >
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control onChange={this.handleFieldChange} id="phone"/>
+              </Form.Group>
+            </Form.Row>
+
+            <Form.Group id="formGridCheckbox">
+              <Form.Check type="checkbox" label="I am not a robot"/>
             </Form.Group>
 
-            <Form.Group as={Col} id="zip">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control />
-            </Form.Group>
-
-            <Form.Group as={Col} id="phone">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control />
-            </Form.Group>
-          </Form.Row>
-
-          <Form.Group id="formGridCheckbox">
-            <Form.Check type="checkbox" label="I am not a robot" />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form></div>
+            <Button variant="primary" type="submit" onClick={this.buildNewPark}>
+              Submit
+            </Button>
+          </Form>
+        </div>
       </>
     );
   }

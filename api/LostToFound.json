@@ -3,12 +3,17 @@
     {
       "aud": "auth0|5da9dd03801d0f0e12ff8734",
       "name": "lance",
-      "id": 1
+      "id": 1,
+      "state": "NV"
     },
     {
-      "aud": "google-oauth2|107521547695229259434",
-      "name": "spectormade",
-      "id": 2
+      "id": 2,
+      "parkName": "Grand Canyon",
+      "email": "appleguy05@live.com",
+      "streetAddress": "po box 1046",
+      "city": "Barboursville",
+      "state": "1",
+      "phone": "3045614944"
     }
   ],
   "statuses": [

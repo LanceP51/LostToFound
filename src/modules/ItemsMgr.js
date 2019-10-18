@@ -6,11 +6,6 @@ export default {
     return fetch(`${remoteURL}/items/${id}`).then(result => result.json());
   },
 
-  // get session storage id
-  getOne() {
-    return fetch(`${remoteURL}/parks/${sessionStorage.getItem('credentials')}`).then(result => result.json())
-     },
-
   //fetch all items
   getAll() {
     return fetch(
