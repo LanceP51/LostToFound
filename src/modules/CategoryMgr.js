@@ -24,14 +24,14 @@ export default {
     }).then(data => data.json());
   },
 
-  //edit an category
-  update(editedCategory) {
-    return fetch(`${remoteURL}/categories/${editedCategory.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(editedCategory)
-    }).then(data => data.json());
-  }
+  //edit a category
+  // update(editedCategory) {
+  //   return fetch(`${remoteURL}/categories/${editedCategory.id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(editedCategory)
+  //   }).then(data => data.json());
+  // }
 };

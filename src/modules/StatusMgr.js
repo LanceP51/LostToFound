@@ -14,24 +14,24 @@ export default {
     },
 
     // add a Status
-    post(newStatus) {
-      return fetch(`${remoteURL}/statuses`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newStatus)
-      }).then(data => data.json());
-    },
+    // post(newStatus) {
+    //   return fetch(`${remoteURL}/statuses`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(newStatus)
+    //   }).then(data => data.json());
+    // },
 
     //edit an Status
-    update(editedStatus) {
-      return fetch(`${remoteURL}/statuses/${editedStatus.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(editedStatus)
-      }).then(data => data.json());
-    }
+    // update(editedStatus) {
+    //   return fetch(`${remoteURL}/statuses/${editedStatus.id}`, {
+    //     method: "PUT",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(editedStatus)
+    //   }).then(data => data.json());
+    // }
   };

@@ -4,19 +4,16 @@ import ParksMgr from "../../modules/ParksMgr"
 import "../../components/LostToFound.css"
 
 class Login extends Component {
-  // Set initial state
-  state = {
-    loginEmail: "",
-    loginPassword: ""
-  };
 
-//   state for REGISTER
-//   state = {
-//     name: "",
-//     email: "",
-//     password: "",
-//     loadingStatus: false,
-// };
+  state = {
+    parkName: "",
+    email: "",
+    streetAddress: "",
+    city:"",
+    state:"",
+    phone:"",
+    loadingStatus: false,
+};
 
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
@@ -25,19 +22,19 @@ class Login extends Component {
     this.setState(stateToChange);
   };
 
-  handleLogin = (e) => {
-    e.preventDefault();
-    const loginEmail = this.state.loginEmail
-    const loginPassword = this.state.loginPassword
-    ParksMgr.getOne(loginEmail).then(park => {
-        if (loginPassword === "") { alert("Please enter password") }
-        else if (park[0].password === loginPassword) {
-          localStorage.setItem("parkId", park[0].id)
-        }
-        else { (alert("Incorrect password")) }
-      this.props.history.push("/login")
-    });
-  }
+  // handleLogin = (e) => {
+  //   e.preventDefault();
+  //   const loginEmail = this.state.loginEmail
+  //   const loginPassword = this.state.loginPassword
+  //   ParksMgr.getOne(loginEmail).then(park => {
+  //       if (loginPassword === "") { alert("Please enter password") }
+  //       else if (park[0].password === loginPassword) {
+  //         localStorage.setItem("parkId", park[0].id)
+  //       }
+  //       else { (alert("Incorrect password")) }
+  //     this.props.history.push("/login")
+  //   });
+  // }
 
   // constructNewUser = evt => {
   //   evt.preventDefault();
@@ -75,7 +72,7 @@ class Login extends Component {
     return (
       <>
         {/* from bootstrap // login */}
-        <div id="login-container">
+        {/* <div id="login-container">
         <h3>Login</h3>
         <Form>
           <Form.Group>
@@ -95,41 +92,41 @@ class Login extends Component {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form></div>
+        </Form></div> */}
 
         {/* register */}
         <div id="register-container">
-        <h3>Register</h3>
+        <h3>Account Dashboard</h3>
         <Form>
           <Form.Row>
-          <Form.Group controlId="formGridName">
+          <Form.Group id="parkName">
             <Form.Label>Park Name</Form.Label>
             <Form.Control placeholder="Your National Park" />
           </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridPassword">
+            {/* <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
+            </Form.Group> */}
           </Form.Row>
 
-          <Form.Group controlId="formGridAddress1">
+          <Form.Group id="streeAddress">
             <Form.Label>Address</Form.Label>
             <Form.Control placeholder="1234 Main St" />
           </Form.Group>
 
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col} id="city">
               <Form.Label>City</Form.Label>
               <Form.Control />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} id="state">
               <Form.Label>State</Form.Label>
               <Form.Control as="select">
                 <option>State</option>
@@ -137,12 +134,12 @@ class Login extends Component {
               </Form.Control>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
+            <Form.Group as={Col} id="zip">
               <Form.Label>Zip</Form.Label>
               <Form.Control />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridPhone">
+            <Form.Group as={Col} id="phone">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control />
             </Form.Group>

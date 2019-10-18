@@ -3,6 +3,7 @@ import "../../components/LostToFound.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import ItemCard from "../items/ItemCard";
 import ItemsMgr from "../../modules/ItemsMgr";
+import auth0Client from "../login/Auth"
 
 class Items extends Component {
   state = {
@@ -31,6 +32,12 @@ class Items extends Component {
     });
   }
 
+  signOut = () => {
+    auth0Client.signOut();
+    sessionStorage.clear()
+    this.props.history.replace("/");
+  };
+
   render() {
     return (
       <>
@@ -38,8 +45,7 @@ class Items extends Component {
           <Button
             variant="secondary"
             size="sm"
-            href="home"
-            {...localStorage.clear("activeuser")}
+            onClick={this.signOut}
           >
             Logout
           </Button>

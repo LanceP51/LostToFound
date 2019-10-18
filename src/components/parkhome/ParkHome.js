@@ -5,6 +5,7 @@ import ItemCard from "../items/ItemCard";
 import ItemsMgr from "../../modules/ItemsMgr";
 import CategoryMgr from "../../modules/CategoryMgr";
 import ParksMgr from "../../modules/ParksMgr";
+import auth0Client from "../login/Auth"
 
 class ParksHome extends Component {
   state = {
@@ -79,11 +80,17 @@ class ParksHome extends Component {
       });
   }
 
+  signOut = () => {
+    auth0Client.signOut();
+    sessionStorage.clear()
+    this.props.history.replace("/");
+  };
+
   render() {
     return (
       <>
 	  <div id="logout-btn">
-        <Button variant="secondary" size="sm" href="home" {...localStorage.clear("activeuser")}>Logout</Button>
+        <Button variant="secondary" size="sm"  onClick={this.signOut}>Logout</Button>
         </div>
         <div id="visitor-form-container">
           <h4> What Did You Find?</h4>

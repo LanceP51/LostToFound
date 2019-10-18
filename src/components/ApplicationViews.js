@@ -7,13 +7,15 @@ import ParkHome from "../components/parkhome/ParkHome";
 import ItemsList from "../components/parkhome/ItemsList";
 import VisitorForm from "../components/visitors/VisitorForm";
 import Confirmation from "../components/visitors/VisitorConfirm";
+import Callback from "../components/login/Callback";
+import auth0Client from "./login/Auth";
 
 class ApplicationViews extends Component {
-  isAuthenticated = () => localStorage.getItem("userId") !== null;
-
   render() {
     return (
       <React.Fragment>
+        <Route exact path="/callback" component={Callback} />
+
         <Route
           exact
           path="/"
@@ -29,28 +31,60 @@ class ApplicationViews extends Component {
           }}
         />
 
-        <Route
+        {/* <Route
           path="/login"
           render={props => {
             return <Login {...props} />;
+          }}
+        /> */}
+
+        <Route
+          path="/login"
+          render={props => {
+            if (sessionStorage.getItem('credentials') !== null) {
+              return <Login {...props} />;
+            } else {
+              auth0Client.signIn();
+              return null;
+            }
           }}
         />
 
         <Route
           path="/parkhome"
           render={props => {
-            return this.isAuthenticated() ? (
-              <ParkHome {...props} />
-            ) : (
-              <Redirect to="/login" />
-            );
+            if (sessionStorage.getItem('credentials') !== null) {
+              return <ParkHome {...props} />;
+            } else {
+              auth0Client.signIn();
+              return null;
+            }
           }}
         />
+
+        {/* <Route
+          path="/items"
+          render={props => {
+            // console.log(auth0Client.isAuthenticated())
+            // return null
+            if (auth0Client.isAuthenticated()) {
+              return <ItemsList {...props} />;
+            } else {
+              auth0Client.signIn();
+              return null;
+            }
+          }}
+        /> */}
 
         <Route
           path="/items"
           render={props => {
-            return <ItemsList {...props} />;
+            if (sessionStorage.getItem('credentials') !== null) {
+              return <ItemsList {...props} />;
+            } else {
+              auth0Client.signIn();
+              return null;
+            }
           }}
         />
 
@@ -62,14 +96,14 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          exact
           path="/visitorform/confirm"
           render={props => {
-            return this.isAuthenticated() ? (
-              <Confirmation {...props} />
-            ) : (
-              <Redirect to="/login" />
-            );
+            if (sessionStorage.getItem('credentials') !== null) {
+              return <Confirmation {...props} />;
+            } else {
+              auth0Client.signIn();
+              return null;
+            }
           }}
         />
       </React.Fragment>

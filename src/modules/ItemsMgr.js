@@ -6,10 +6,15 @@ export default {
     return fetch(`${remoteURL}/items/${id}`).then(result => result.json());
   },
 
+  // get session storage id
+  getOne() {
+    return fetch(`${remoteURL}/parks/${sessionStorage.getItem('credentials')}`).then(result => result.json())
+     },
+
   //fetch all items
   getAll() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status`
+      `${remoteURL}/items?userId=${sessionStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status`
     ).then(result => result.json());
   },
 
@@ -30,7 +35,7 @@ export default {
   //fetch still lost items
   getStillLost() {
     return fetch(
-      `${remoteURL}/items?userId=${localStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status&statusId=1`
+      `${remoteURL}/items?userId=${sessionStorage.getItem("userId")}&_expand=park&_expand=category&_expand=status&statusId=1`
     ).then(result => result.json());
   },
 
