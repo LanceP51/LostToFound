@@ -14,7 +14,9 @@ class Login extends Component {
     loadingStatus: false,
     parkId: [],
     newPark: {},
-    id: ""
+    id: "",
+    name: "",
+    aud: ""
   };
 
   // Update state whenever an input field is edited
@@ -77,7 +79,9 @@ class Login extends Component {
     });
     ParksMgr.getOneBySession().then(park => {
       this.setState({
-        id: park.id
+        id: park.id,
+        aud: park.aud,
+        name: park.name
       });
     });
   }

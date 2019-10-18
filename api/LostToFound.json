@@ -2,17 +2,24 @@
   "parks": [
     {
       "aud": "auth0|5da9dd03801d0f0e12ff8734",
+      "id": 2,
       "name": "lance",
-      "id": 1,
-      "state": "NV"
+      "parkName": "Yosemite",
+      "email": "john@appleseed.com",
+      "streetAddress": "5555 Dorm Ave",
+      "city": "Huntington",
+      "state": "WV",
+      "phone": "3047894512"
     },
     {
-      "id": 2,
+      "aud": "google-oauth2|107521547695229259434",
+      "id": 1,
+      "name": "spectormade",
       "parkName": "Grand Canyon",
       "email": "appleguy05@live.com",
-      "streetAddress": "po box 1046",
+      "streetAddress": "123 main st",
       "city": "Barboursville",
-      "state": "1",
+      "state": "KY",
       "phone": "3045614944"
     }
   ],
