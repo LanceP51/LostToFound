@@ -16,7 +16,7 @@ export default {
   //fetch all parks
   getAll() {
     return fetch(
-      `${remoteURL}/parks?userId=${sessionStorage.getItem("userId")}`
+      `${remoteURL}/parks?parkId=${sessionStorage.getItem("credentials")}`
     ).then(result => result.json());
   },
 

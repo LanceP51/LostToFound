@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Card, ListGroup, ListGroupItem, Button} from "react-bootstrap";
-import "../LostToFound.css"
+import "../LostToFound.css";
+import {Link} from "react-router-dom"
 
 class ItemCard extends Component {
 
@@ -13,22 +14,19 @@ class ItemCard extends Component {
           <Card.Body>
             <Card.Title>{this.props.ItemProp.itemName}</Card.Title>
           </Card.Body>
-          {/* <ListGroup className="list-group-flush">
+          <ListGroup className="list-group-flush">
             <ListGroupItem>{this.props.ItemProp.category.type}</ListGroupItem>
             <ListGroupItem>{this.props.ItemProp.date}</ListGroupItem>
             <ListGroupItem>{this.props.ItemProp.park.parkName}</ListGroupItem>
             <ListGroupItem>{this.props.ItemProp.status.type}</ListGroupItem>
-          </ListGroup> */}
+          </ListGroup>
           <Card.Body>
-            <Button
-							type="button"
-							onClick={() => {
-								this.props.history.push(`/items/${this.props.ItemProp.id}/edit`);
-							}}
+            <Link
+							href="/items/:itemId(\d+)/edit"
 							variant="link"
 						>
-							Edit
-						</Button>
+							Update
+						</Link>
 						<Button
 							type="button"
 							onClick={() => {

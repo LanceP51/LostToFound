@@ -1,25 +1,24 @@
 import React, { Component } from "react";
+import { Button, Form } from "react-bootstrap";
 import "../../components/LostToFound.css";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import ItemCard from "../items/ItemCard";
 import ItemsMgr from "../../modules/ItemsMgr";
-import CategoryMgr from "../../modules/CategoryMgr";
-import ParksMgr from "../../modules/ParksMgr";
-import auth0Client from "../login/Auth"
+import StatusMgr from "../../modules/StatusMgr";
+// import ParksMgr from "../../modules/ParksMgr";
 
-class ParksHome extends Component {
+class VisitorForm extends Component {
   state = {
-    // ownerName: "",
-    // ownerEmail: "",
+    ownerName: "",
+    ownerEmail: "",
     itemName: "",
     date: "",
     photo: "",
-    categoryId: [],
-    parkId: [],
+    // categoryId: [],
+    // parkId: [],
+    statusId: [],
     loadingStatus: false,
-    selectedPark: "",
-    selectedCategory: "",
-    items: []
+    // selectedPark:"",
+    // selectedCategory:"",
+    selectedStatus: ""
   };
 
   handleFieldChange = evt => {
@@ -30,79 +29,79 @@ class ParksHome extends Component {
 
   /* method for validation, set loadingStatus, create listing      object, invoke the jsonManager post method, and redirect to the full home page (later to confirmation page)*/
 
-  buildListing = evt => {
+  editListing = evt => {
     evt.preventDefault();
-    if (
+    // if (
     //   this.state.ownerName === "" ||
     //   this.state.ownerEmail === "" ||
-      this.state.itemName === "" ||
-      this.state.date === "" ||
-      this.state.selectedCategory === "" ||
-      this.state.selectedPark === ""
-    ) {
-      window.alert("Please input all criteria");
-    } else {
-      this.setState({ loadingStatus: true });
-      const newListing = {
-        ownerName: "",
-        ownerEmail: "",
-        itemName: this.state.itemName,
-        date: this.state.date,
-        photo: this.state.photo,
-        categoryId: Number(this.state.selectedCategory),
-        parkId: Number(this.state.selectedPark),
-        statusId: +2
-      };
+    //   this.state.itemName === "" ||
+    //   this.state.date === "" ||
+    //   this.state.selectedCategory === "" ||
+    //   this.state.selectedPark === ""
+    // ) {
+    //   window.alert("Please input all criteria");
+    // } else {
+    this.setState({ loadingStatus: true });
+    const editedListing = {
+      id: this.props.match.params.itemId,
+      ownerName: this.state.ownerName,
+      ownerEmail: this.state.ownerEmail,
+      itemName: this.state.itemName,
+      date: this.state.date,
+      photo: this.state.photo,
+      // categoryId: Number(this.state.selectedCategory),
+      // parkId: Number(this.state.selectedPark),
+      statusId: Number(this.state.selectedStatus)
+    };
 
-      // post the listing and redirect user to home (and later to a confirmation page)
-      ItemsMgr.post(newListing).then(() => this.props.history.push("/items"));
-    }
+    // update the listing and redirect user to a confirmation page)
+    ItemsMgr.edit(editedListing).then(() =>
+      this.props.history.push("/visitorform/confirm")
+    );
+    // }
   };
 
   componentDidMount() {
-    CategoryMgr.getAll()
-      .then(categories => {
+    ItemsMgr.getOne(this.props.match.params.itemId);
+    StatusMgr.getAll()
+      .then(statuses => {
+        statuses.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
-          categoryId: categories
+          statusId: statuses
         });
       })
-      .then(() => ParksMgr.getAll())
-      .then(parks => {
-        parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+      .then(item => {
         this.setState({
-          parkId: parks
-        });
-      })
-      .then(() => ItemsMgr.getStillLost())
-      .then(items => {
-        this.setState({
-          items: items
+          ownerName: item.ownerName,
+          ownerEmail: item.ownerEmail,
+          itemName: item.itemName,
+          date: item.date,
+          photo: item.photo,
+          loadingStatus: false,
+          selectedStatus: item.selectedStatus
         });
       });
+    //   .then(() => ParksMgr.getAll())
+    //   .then(parks => {
+    //     this.setState({
+    //       parkId: parks
+    //     });
+    //   });
   }
-
-  signOut = () => {
-    auth0Client.signOut();
-    sessionStorage.clear()
-    this.props.history.replace("/");
-  };
 
   render() {
     return (
       <>
-	  <div id="logout-btn">
-        <Button variant="secondary" size="sm"  onClick={this.signOut}>Logout</Button>
-        </div>
         <div id="visitor-form-container">
-          <h4> What Did You Find?</h4>
+          <h4> Update Form</h4>
           {/* from bootstrap // add name and date */}
           <Form>
-            {/* <Form.Group>
+            <Form.Group>
               <Form.Label>Name</Form.Label>
               <Form.Control
                 id="ownerName"
                 as="textarea"
-                placeholder="Your Name"
+                placeholder="Owner Name"
                 rows="1"
                 onChange={this.handleFieldChange}
               />
@@ -115,13 +114,13 @@ class ParksHome extends Component {
                 placeholder="name@example.com"
                 onChange={this.handleFieldChange}
               />
-            </Form.Group> */}
+            </Form.Group>
             <Form.Group>
               <Form.Label>Item</Form.Label>
               <Form.Control
                 id="itemName"
                 as="textarea"
-                placeholder="Item Title"
+                value={this.state.itemName}
                 rows="1"
                 onChange={this.handleFieldChange}
               />
@@ -131,10 +130,27 @@ class ParksHome extends Component {
               <Form.Control
                 id="date"
                 type="date"
+                value={this.state.date}
                 onChange={this.handleFieldChange}
               />
             </Form.Group>
             <Form.Group>
+              <Form.Label>Status</Form.Label>
+              <Form.Control
+                as="select"
+                id="selectedStatus"
+                value={this.state.statusId}
+                onChange={this.handleFieldChange}
+              >
+                <option>Select a Status</option>
+                {this.state.statusId.map(status => (
+                  <option key={status.id} value={status.id}>
+                    {status.selectedStatus}
+                  </option>
+                ))}
+              </Form.Control>
+            </Form.Group>
+            {/* <Form.Group >
               <Form.Label>Park</Form.Label>
               <Form.Control
                 as="select"
@@ -148,8 +164,8 @@ class ParksHome extends Component {
                   </option>
                 ))}
               </Form.Control>
-            </Form.Group>
-            <Form.Group>
+            </Form.Group> */}
+            {/* <Form.Group >
               <Form.Label>Category</Form.Label>
               <Form.Control
                 as="select"
@@ -157,20 +173,19 @@ class ParksHome extends Component {
                 id="selectedCategory"
                 value={this.state.categoryId}
                 onChange={this.handleFieldChange}
-              ><option>Select a Category</option>
+              >
+                <option>Select a Category</option>
                 {this.state.categoryId.map(category => (
-                  <option key={category.id} value={category.id}>
-                    {category.type}
-                  </option>
-                ))}
+                <option key={category.id} value={category.id}>
+              {category.type}</option>))}
               </Form.Control>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group>
               <Form.Label>Photo url</Form.Label>
               <Form.Control
                 id="photo"
                 as="textarea"
-                placeholder="url"
+                value={this.state.photo}
                 rows="1"
                 onChange={this.handleFieldChange}
               />
@@ -178,27 +193,15 @@ class ParksHome extends Component {
           </Form>
           <Button
             disabled={this.state.loadingStatus}
-            onClick={this.buildListing}
+            onClick={this.editListing}
             type="submit"
           >
-            Post
+            Complete
           </Button>
-        </div>
-        <div id="still-lost-container">
-          <Container className="home-containers">
-            <h2> Still Lost</h2>
-            <Row className="home-items">
-              <Col id="items-list-page-container">
-                {this.state.items.map(singleItem => (
-                  <ItemCard key={singleItem.id} ItemProp={singleItem} />
-                ))}
-              </Col>
-            </Row>
-          </Container>
         </div>
       </>
     );
   }
 }
 
-export default ParksHome;
+export default VisitorForm;

@@ -89,7 +89,7 @@
       "date": "2019-08-15",
       "categoryId": 3,
       "photo": "https://expertclimbers.com/wp-content/uploads/2019/05/Black-Diamond-Momentum-Harness-Kids-750x750.jpg",
-      "parkId": 3,
+      "parkId": 1,
       "statusId": 3,
       "ownerEmail": "",
       "ownerName": ""
@@ -100,7 +100,7 @@
       "date": "2019-08-15",
       "categoryId": 4,
       "photo": "https://i2-prod.mirror.co.uk/incoming/article13543374.ece/ALTERNATES/s615/3_Baby-with-avocadoed.jpg",
-      "parkId": 4,
+      "parkId": 2,
       "statusId": 4,
       "ownerEmail": "",
       "ownerName": ""
@@ -111,7 +111,7 @@
       "date": "2019-08-15",
       "categoryId": 2,
       "photo": "https://blueprint-api-production.s3.amazonaws.com/uploads/card/image/942170/1dba9c57-5529-43d7-8a33-c4caf6ec9cb9.jpg",
-      "parkId": 4,
+      "parkId": 1,
       "statusId": 5,
       "ownerEmail": "",
       "ownerName": ""
@@ -122,7 +122,7 @@
       "date": "2019-08-15",
       "categoryId": 5,
       "photo": "https://dimg.dillards.com/is/image/DillardsZoom/zoom/melissa--doug-penguin-giant-stuffed-animal/05363737_zi.jpg",
-      "parkId": 5,
+      "parkId": 2,
       "statusId": 5,
       "ownerEmail": "",
       "ownerName": ""
@@ -133,7 +133,7 @@
       "date": "2019-08-15",
       "categoryId": 3,
       "photo": "https://www.dhresource.com/0x0s/f2-albu-g7-M00-5F-33-rBVaSltHScaAS_HRAACo74WRx_A150.jpg/outdoor-adjustable-hiking-walking-sticks.jpg",
-      "parkId": 3,
+      "parkId": 1,
       "statusId": 2,
       "ownerEmail": "",
       "ownerName": ""
@@ -156,7 +156,7 @@
       "date": "2019-10-17",
       "photo": "https://media.mnn.com/assets/images/2014/11/hiking-cat.jpg.653x0_q80_crop-smart.jpg",
       "categoryId": 6,
-      "parkId": 5,
+      "parkId": 1,
       "statusId": 2,
       "id": 8
     },
@@ -167,7 +167,7 @@
       "date": "2019-10-09",
       "photo": "https://www.lowergear.com/210-large_default/trekking-poles-pair.jpg",
       "categoryId": 3,
-      "parkId": 2,
+      "parkId": 1,
       "statusId": 1,
       "id": 9
     }

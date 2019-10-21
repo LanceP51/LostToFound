@@ -14,6 +14,7 @@ class Login extends Component {
     loadingStatus: false,
     parkId: [],
     newPark: {},
+    // selectedState: "",
     id: "",
     name: "",
     aud: ""
@@ -73,6 +74,7 @@ class Login extends Component {
 
   componentDidMount() {
     ParksMgr.getAll().then(parks => {
+      parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
       this.setState({
         parkId: parks
       });
@@ -149,7 +151,7 @@ class Login extends Component {
                 <Form.Control onChange={this.handleFieldChange} id="state" as="select">
                   <option>State</option>
                   {this.state.parkId.map(park => (
-                    <option key={park.id} value={park.id}>
+                    <option key={park.id} value={park.state}>
                       {park.state}
                     </option>
                   ))}
@@ -166,9 +168,9 @@ class Login extends Component {
               </Form.Group>
             </Form.Row>
 
-            <Form.Group id="formGridCheckbox">
+            {/* <Form.Group id="formGridCheckbox">
               <Form.Check type="checkbox" label="I am not a robot"/>
-            </Form.Group>
+            </Form.Group> */}
 
             <Button variant="primary" type="submit" onClick={this.buildNewPark}>
               Submit

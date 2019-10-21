@@ -59,12 +59,14 @@ class VisitorForm extends Component {
   componentDidMount() {
     CategoryMgr.getAll()
       .then(categories => {
+        categories.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           categoryId: categories
         });
       })
       .then(() => ParksMgr.getAll())
       .then(parks => {
+        parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           parkId: parks
         });
