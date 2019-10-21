@@ -1,6 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
 import React, { Component } from "react";
-// import NavBar from "../components/navbar/Navbar";
 import Home from "../components/home/Home";
 import Login from "../components/login/Login";
 import ParkHome from "../components/parkhome/ParkHome";
@@ -32,13 +31,6 @@ class ApplicationViews extends Component {
           }}
         />
 
-        {/* <Route
-          path="/login"
-          render={props => {
-            return <Login {...props} />;
-          }}
-        /> */}
-
         <Route
           path="/login"
           render={props => {
@@ -62,20 +54,6 @@ class ApplicationViews extends Component {
             }
           }}
         />
-
-        {/* <Route
-          path="/items"
-          render={props => {
-            // console.log(auth0Client.isAuthenticated())
-            // return null
-            if (auth0Client.isAuthenticated()) {
-              return <ItemsList {...props} />;
-            } else {
-              auth0Client.signIn();
-              return null;
-            }
-          }}
-        /> */}
 
         <Route
           path="/items"

@@ -83,7 +83,15 @@ class Login extends Component {
       this.setState({
         id: park.id,
         aud: park.aud,
-        name: park.name
+        name: park.name,
+        parkName: "",
+        email: "",
+        streetAddress: "",
+        city: "",
+        state: "",
+        zip: "",
+        phone: ""
+
       });
     });
   }

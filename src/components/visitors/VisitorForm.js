@@ -105,8 +105,8 @@ class VisitorForm extends Component {
                 onChange={this.handleFieldChange}
               ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
-                  <option key={park.id} value={park.id}>
-                    {park.parkName}
+                  <option key={park.id} value={park.parkName}>
+                    {park.selectedPark}
                   </option>
                 ))}
               </Form.Control>
@@ -122,8 +122,8 @@ class VisitorForm extends Component {
               >
                 <option>Select a Category</option>
                 {this.state.categoryId.map(category => (
-                <option key={category.id} value={category.id}>
-              {category.type}</option>))}
+                <option key={category.id} value={category.type}>
+              {category.selectedCategory}</option>))}
               </Form.Control>
             </Form.Group>
             <Form.Group >

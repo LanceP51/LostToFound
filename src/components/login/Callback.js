@@ -52,6 +52,22 @@ class Callback extends Component {
         }
       });
     this.props.history.replace("/login");
+
+  //     .then(
+  //       ParksMgr.getOneBySession().then(park => {
+  //         this.setState({
+  //           parkName: park.parkName
+  //         })
+  //       })
+  //     )
+  //     .then();
+  //   if (park.parkName !== undefined) {
+  //     this.props.history.replace("/parkhome");
+  //   } else {
+  //     this.props.history.replace("/login");
+  //   }
+  // }
+
   }
 
   render() {

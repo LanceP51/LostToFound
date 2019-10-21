@@ -8,7 +8,6 @@ class ItemCard extends Component {
   render() {
     return (
       <>
-        {/* from react-bootstrap */}
         <Card id="item-card" style={{ width: "18rem" }}>
           <Card.Img id="item-pic" variant="top" src={this.props.ItemProp.photo} />
           <Card.Body>
@@ -22,7 +21,7 @@ class ItemCard extends Component {
           </ListGroup>
           <Card.Body>
             <Link
-							href="/items/:itemId(\d+)/edit"
+							to={`/items/${this.props.ItemProp.id}/edit`}
 							variant="link"
 						>
 							Update

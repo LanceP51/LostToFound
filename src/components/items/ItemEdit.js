@@ -5,7 +5,7 @@ import ItemsMgr from "../../modules/ItemsMgr";
 import StatusMgr from "../../modules/StatusMgr";
 // import ParksMgr from "../../modules/ParksMgr";
 
-class VisitorForm extends Component {
+class ItemEdit extends Component {
   state = {
     ownerName: "",
     ownerEmail: "",
@@ -65,7 +65,7 @@ class VisitorForm extends Component {
     ItemsMgr.getOne(this.props.match.params.itemId);
     StatusMgr.getAll()
       .then(statuses => {
-        statuses.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        // statuses.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           statusId: statuses
         });
@@ -144,7 +144,7 @@ class VisitorForm extends Component {
               >
                 <option>Select a Status</option>
                 {this.state.statusId.map(status => (
-                  <option key={status.id} value={status.id}>
+                  <option key={status.id} value={status.type}>
                     {status.selectedStatus}
                   </option>
                 ))}
@@ -204,4 +204,4 @@ class VisitorForm extends Component {
   }
 }
 
-export default VisitorForm;
+export default ItemEdit;
