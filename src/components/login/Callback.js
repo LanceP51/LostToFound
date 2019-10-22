@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import auth0Client from "./Auth";
+import ParksMgr from "../../modules/ParksMgr"
 
 class Callback extends Component {
 
@@ -55,34 +56,27 @@ state={
           );
           sessionStorage.setItem("credentials", matchingPark[0].id);
         }
-      })
-
+      });
     // this.props.history.replace("/login");
-
 
 
 // trying to configure a conditional callback
 
-      .then(
         ParksMgr.getOneBySession().then(park => {
           this.setState({
             parkName: park.parkName
           })
         })
-      )
-      .then(
-        if (parkName !== undefined) {
+      .then(()=>{
+        if (this.state.parkName === undefined) {
           this.props.history.replace("/parkhome");
         } else {
           this.props.history.replace("/login");
-        }
+        }}
       );
+
+
   }
-
-}
-
-
-
 
   render() {
     return <p>Loading profile...</p>;

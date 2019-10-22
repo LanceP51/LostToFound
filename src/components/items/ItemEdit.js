@@ -3,7 +3,6 @@ import { Button, Form } from "react-bootstrap";
 import "../../components/LostToFound.css";
 import ItemsMgr from "../../modules/ItemsMgr";
 import StatusMgr from "../../modules/StatusMgr";
-// import ParksMgr from "../../modules/ParksMgr";
 
 class ItemEdit extends Component {
   state = {
@@ -13,10 +12,8 @@ class ItemEdit extends Component {
     date: "",
     photo: "",
     // categoryId: [],
-    // parkId: [],
     statusId: [],
     loadingStatus: false,
-    // selectedPark:"",
     // selectedCategory:"",
     selectedStatus: ""
   };
@@ -27,7 +24,7 @@ class ItemEdit extends Component {
     this.setState(stateToChange);
   };
 
-  /* method for validation, set loadingStatus, create listing      object, invoke the jsonManager post method, and redirect to the full home page (later to confirmation page)*/
+  /* method for validation, create listing object, post method, and redirect to confirmation page)*/
 
   editListing = evt => {
     evt.preventDefault();
@@ -50,7 +47,6 @@ class ItemEdit extends Component {
       date: this.state.date,
       photo: this.state.photo,
       // categoryId: Number(this.state.selectedCategory),
-      // parkId: Number(this.state.selectedPark),
       statusId: Number(this.state.selectedStatus)
     };
 
@@ -62,31 +58,24 @@ class ItemEdit extends Component {
   };
 
   componentDidMount() {
-    ItemsMgr.getOne(this.props.match.params.itemId);
-    StatusMgr.getAll()
+    ItemsMgr.getOne(this.props.match.params.itemId)
+      .then(item => {
+        this.setState({
+          ownerName: item.ownerName,
+          ownerEmail: item.ownerEmail,
+          itemName: item.itemName,
+          date: item.date,
+          photo: item.photo,
+          loadingStatus: false,
+          selectedStatus: item.statusId
+        });
+      })
+      .then(StatusMgr.getAll)
       .then(statuses => {
-        // statuses.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           statusId: statuses
         });
-      })
-    //   .then(item => {
-    //     this.setState({
-    //       ownerName: item.ownerName,
-    //       ownerEmail: item.ownerEmail,
-    //       itemName: item.itemName,
-    //       date: item.date,
-    //       photo: item.photo,
-    //       loadingStatus: false,
-    //       selectedStatus: item.selectedStatus
-    //     });
-    //   });
-    //   .then(() => ParksMgr.getAll())
-    //   .then(parks => {
-    //     this.setState({
-    //       parkId: parks
-    //     });
-    //   });
+      });
   }
 
   render() {
@@ -143,28 +132,13 @@ class ItemEdit extends Component {
                 onChange={this.handleFieldChange}
               >
                 <option>Select a Status</option>
-                {/* {this.state.statusId.map(status => (
+                {this.state.statusId.map(status => (
                   <option key={status.id} value={status.type}>
                     {status.selectedStatus}
                   </option>
-                ))} */}
-              </Form.Control>
-            </Form.Group>
-            {/* <Form.Group >
-              <Form.Label>Park</Form.Label>
-              <Form.Control
-                as="select"
-                id="selectedPark"
-                value={this.state.parkId}
-                onChange={this.handleFieldChange}
-              ><option>Select a Park</option>
-                {this.state.parkId.map(park => (
-                  <option key={park.id} value={park.id}>
-                    {park.parkName}
-                  </option>
                 ))}
               </Form.Control>
-            </Form.Group> */}
+            </Form.Group>
             {/* <Form.Group >
               <Form.Label>Category</Form.Label>
               <Form.Control

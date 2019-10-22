@@ -68,7 +68,7 @@ class ParksHome extends Component {
       })
       .then(() => ParksMgr.getAll())
       .then(parks => {
-        parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        // parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           parkId: parks
         });

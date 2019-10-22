@@ -56,7 +56,7 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          path="/items"
+          exact path="/items"
           render={props => {
             if (sessionStorage.getItem("credentials") !== null) {
               return <ItemsList {...props} />;
@@ -80,7 +80,7 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          path="/visitorform"
+          exact path="/visitorform"
           render={props => {
             return <VisitorForm {...props} />;
           }}

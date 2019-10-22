@@ -25,7 +25,7 @@ class VisitorForm extends Component {
     this.setState(stateToChange);
   };
 
-  /* method for validation, set loadingStatus, create listing      object, invoke the jsonManager post method, and redirect to the full home page (later to confirmation page)*/
+  /* method for validation, set loadingStatus, create listing object, invoke the jsonManager post method, and redirect to the full home page (later to confirmation page)*/
 
   buildListing = evt => {
     evt.preventDefault();
@@ -59,14 +59,14 @@ class VisitorForm extends Component {
   componentDidMount() {
     CategoryMgr.getAll()
       .then(categories => {
-        categories.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        // categories.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           categoryId: categories
         });
       })
       .then(() => ParksMgr.getAll())
       .then(parks => {
-        parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+        // parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           parkId: parks
         });
@@ -105,8 +105,8 @@ class VisitorForm extends Component {
                 onChange={this.handleFieldChange}
               ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
-                  <option key={park.id} value={park.parkName}>
-                    {park.selectedPark}
+                  <option key={park.id} value={park.parkId}>
+                    {park.parkName}
                   </option>
                 ))}
               </Form.Control>
@@ -122,8 +122,8 @@ class VisitorForm extends Component {
               >
                 <option>Select a Category</option>
                 {this.state.categoryId.map(category => (
-                <option key={category.id} value={category.type}>
-              {category.selectedCategory}</option>))}
+                <option key={category.id} value={category.id}>
+              {category.type}</option>))}
               </Form.Control>
             </Form.Group>
             <Form.Group >
