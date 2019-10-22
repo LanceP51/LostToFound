@@ -3,7 +3,7 @@ import backgroundPhoto from "./mount-cascades-park.jpg";
 import slogan from "./slogan.png"
 import "../../components/LostToFound.css";
 import {Container, Row, Col} from "react-bootstrap"
-import ItemCard from "../items/ItemCard"
+import ItemCardlet from "../items/ItemCardlet"
 import ItemsMgr from "../../modules/ItemsMgr"
 
 class Home extends Component {
@@ -40,7 +40,7 @@ class Home extends Component {
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.claimedItems.map(singleItem => (
-                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                    <ItemCardlet key={singleItem.id} ItemProp={singleItem} />
                 ))}</Col>
           </Row>
         </Container>
@@ -49,7 +49,7 @@ class Home extends Component {
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.donatedItems.map(singleItem => (
-                    <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                    <ItemCardlet key={singleItem.id} ItemProp={singleItem} />
                 ))}</Col>
           </Row>
         </Container>

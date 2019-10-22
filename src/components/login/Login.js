@@ -167,12 +167,12 @@ class Login extends Component {
               </Form.Group>
               <Form.Group as={Col} >
                 <Form.Label>Zip</Form.Label>
-                <Form.Control onChange={this.handleFieldChange} id="zip" />
+                <Form.Control placeholder="12345" onChange={this.handleFieldChange} id="zip" />
               </Form.Group>
 
               <Form.Group as={Col} >
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control onChange={this.handleFieldChange} id="phone"/>
+                <Form.Control placeholder="123-123-0000" onChange={this.handleFieldChange} id="phone"/>
               </Form.Group>
             </Form.Row>
 

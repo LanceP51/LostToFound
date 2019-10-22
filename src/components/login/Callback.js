@@ -3,6 +3,11 @@ import { withRouter } from "react-router-dom";
 import auth0Client from "./Auth";
 
 class Callback extends Component {
+
+state={
+  parkName:""
+};
+
   async componentDidMount() {
     await auth0Client.handleAuthentication();
 
@@ -50,25 +55,34 @@ class Callback extends Component {
           );
           sessionStorage.setItem("credentials", matchingPark[0].id);
         }
-      });
-    this.props.history.replace("/login");
+      })
 
-  //     .then(
-  //       ParksMgr.getOneBySession().then(park => {
-  //         this.setState({
-  //           parkName: park.parkName
-  //         })
-  //       })
-  //     )
-  //     .then();
-  //   if (park.parkName !== undefined) {
-  //     this.props.history.replace("/parkhome");
-  //   } else {
-  //     this.props.history.replace("/login");
-  //   }
-  // }
+    // this.props.history.replace("/login");
 
+
+
+// trying to configure a conditional callback
+
+      .then(
+        ParksMgr.getOneBySession().then(park => {
+          this.setState({
+            parkName: park.parkName
+          })
+        })
+      )
+      .then(
+        if (parkName !== undefined) {
+          this.props.history.replace("/parkhome");
+        } else {
+          this.props.history.replace("/login");
+        }
+      );
   }
+
+}
+
+
+
 
   render() {
     return <p>Loading profile...</p>;

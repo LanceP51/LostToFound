@@ -70,17 +70,17 @@ class ItemEdit extends Component {
           statusId: statuses
         });
       })
-      .then(item => {
-        this.setState({
-          ownerName: item.ownerName,
-          ownerEmail: item.ownerEmail,
-          itemName: item.itemName,
-          date: item.date,
-          photo: item.photo,
-          loadingStatus: false,
-          selectedStatus: item.selectedStatus
-        });
-      });
+    //   .then(item => {
+    //     this.setState({
+    //       ownerName: item.ownerName,
+    //       ownerEmail: item.ownerEmail,
+    //       itemName: item.itemName,
+    //       date: item.date,
+    //       photo: item.photo,
+    //       loadingStatus: false,
+    //       selectedStatus: item.selectedStatus
+    //     });
+    //   });
     //   .then(() => ParksMgr.getAll())
     //   .then(parks => {
     //     this.setState({
@@ -138,16 +138,16 @@ class ItemEdit extends Component {
               <Form.Label>Status</Form.Label>
               <Form.Control
                 as="select"
-                id="selectedStatus"
+                id="statusId"
                 value={this.state.statusId}
                 onChange={this.handleFieldChange}
               >
                 <option>Select a Status</option>
-                {this.state.statusId.map(status => (
+                {/* {this.state.statusId.map(status => (
                   <option key={status.id} value={status.type}>
                     {status.selectedStatus}
                   </option>
-                ))}
+                ))} */}
               </Form.Control>
             </Form.Group>
             {/* <Form.Group >

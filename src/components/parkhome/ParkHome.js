@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../components/LostToFound.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import ItemCard from "../items/ItemCard";
+import ItemCardlet from "../items/ItemCardlet";
 import ItemsMgr from "../../modules/ItemsMgr";
 import CategoryMgr from "../../modules/CategoryMgr";
 import ParksMgr from "../../modules/ParksMgr";
@@ -190,7 +190,7 @@ class ParksHome extends Component {
             <Row className="home-items">
               <Col id="items-list-page-container">
                 {this.state.items.map(singleItem => (
-                  <ItemCard key={singleItem.id} ItemProp={singleItem} />
+                  <ItemCardlet key={singleItem.id} ItemProp={singleItem} />
                 ))}
               </Col>
             </Row>
