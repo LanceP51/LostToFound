@@ -29,16 +29,16 @@ class ItemEdit extends Component {
 
   editListing = evt => {
     evt.preventDefault();
-    // if (
-    //   this.state.ownerName === "" ||
-    //   this.state.ownerEmail === "" ||
-    //   this.state.itemName === "" ||
-    //   this.state.date === "" ||
-    //   this.state.selectedCategory === "" ||
-    //   this.state.selectedPark === ""
-    // ) {
-    //   window.alert("Please input all criteria");
-    // } else {
+    if (
+      // this.state.ownerName === "" ||
+      // this.state.ownerEmail === "" ||
+      this.state.itemName === "" ||
+      this.state.date === "" ||
+      this.state.categoryId === "" ||
+      this.state.parkId === ""
+    ) {
+      window.alert("Please input all criteria");
+    } else {
     this.setState({ loadingStatus: true });
     const editedListing = {
       id: this.props.match.params.itemId,
@@ -56,7 +56,7 @@ class ItemEdit extends Component {
     ItemsMgr.edit(editedListing).then(() =>
       this.props.history.push("/visitorform/confirm")
     );
-    // }
+    }
   };
 
   componentDidMount() {

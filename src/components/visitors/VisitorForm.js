@@ -59,14 +59,12 @@ class VisitorForm extends Component {
   componentDidMount() {
     CategoryMgr.getAll()
       .then(categories => {
-        // categories.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           categoryId: categories
         });
       })
       .then(() => ParksMgr.getAll())
       .then(parks => {
-        // parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
         this.setState({
           parkId: parks
         });
@@ -105,7 +103,7 @@ class VisitorForm extends Component {
                 onChange={this.handleFieldChange}
               ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
-                  <option key={park.id} value={park.parkId}>
+                  <option key={park.id} value={park.id}>
                     {park.parkName}
                   </option>
                 ))}
