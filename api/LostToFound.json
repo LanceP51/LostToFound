@@ -71,28 +71,40 @@
       "state": "SD",
       "zip": "13000",
       "phone": "1-605-574-2523"
+    },
+    {
+      "aud": "auth0|5db08d9f15ab970c65ae5ff4",
+      "id": 7,
+      "name": "lance",
+      "parkName": "Lance#2",
+      "email": "lance2@me.com",
+      "streetAddress": "409 Lower Ter",
+      "city": "Huntington",
+      "state": "WV",
+      "zip": "25705",
+      "phone": "3045614944"
     }
   ],
   "statuses": [
     {
-      "id": 1,
-      "type": "lost"
+      "id": 3,
+      "type": "claimed"
+    },
+    {
+      "id": 5,
+      "type": "donated"
     },
     {
       "id": 2,
       "type": "found"
     },
     {
-      "id": 3,
-      "type": "claimed"
+      "id": 1,
+      "type": "lost"
     },
     {
       "id": 4,
       "type": "shipped"
-    },
-    {
-      "id": 5,
-      "type": "donated"
     }
   ],
   "categories": [
@@ -109,16 +121,16 @@
       "type": "gear"
     },
     {
+      "id": 6,
+      "type": "pet"
+    },
+    {
       "id": 4,
       "type": "person"
     },
     {
       "id": 5,
       "type": "toy"
-    },
-    {
-      "id": 6,
-      "type": "pet"
     }
   ],
   "items": [

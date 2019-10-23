@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import auth0Client from "./Auth";
-import ParksMgr from "../../modules/ParksMgr"
+import "../../components/LostToFound.css";
+import {ProgressBar} from "react-bootstrap";
 
 class Callback extends Component {
 
@@ -55,6 +56,7 @@ state={
                 parsedUser
               );
               sessionStorage.setItem("credentials", parsedUser.id);
+              this.props.history.replace("/login");
             });
         } else {
           // If something DOES come back from the fetch call (i.e. the array has a user in it), that means the user already exists in our db and we just need to log them in
@@ -63,31 +65,17 @@ state={
             matchingPark[0].id
           );
           sessionStorage.setItem("credentials", matchingPark[0].id);
+          this.props.history.replace("/parkhome");
         }
       });
-    // this.props.history.replace("/login");
-
-
-// trying to configure a conditional callback
-
-        ParksMgr.getOneBySession().then(park => {
-          this.setState({
-            parkName: park.parkName
-          })
-        })
-      .then(()=>{
-        if (this.state.parkName === undefined) {
-          this.props.history.replace("/parkhome");
-        } else {
-          this.props.history.replace("/login");
-        }}
-      );
-
-
   }
 
   render() {
-    return <p>Loading profile...</p>;
+    return <>
+    <div id="progress"> <ProgressBar now={65} />
+    <p>Loading profile...</p>
+    </div>
+    </>
   }
 }
 

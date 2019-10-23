@@ -95,3 +95,7 @@
 #still-lost-container{
     margin-top: -15%
 }
+/* progress bar margins */
+#progress{
+    margin: 5em;
+}

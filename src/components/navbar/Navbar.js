@@ -27,7 +27,7 @@ class NavBar extends Component {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="login">Account/Register</Nav.Link>
+              <Nav.Link href="/login">Account/Register</Nav.Link>
               {/* <Nav.Link eventKey={2} href="#memes">
                 Dank memes
               </Nav.Link> */}
