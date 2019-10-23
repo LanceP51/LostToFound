@@ -28,7 +28,15 @@ state={
           // Create a new user object to post to the db
           const newUser = {
             aud: auth0Client.getProfile().sub,
-            name: auth0Client.getProfile().nickname
+            name: auth0Client.getProfile().nickname,
+            parkName: "",
+            email: "",
+            streetAddress: "",
+            city: "",
+            state: "",
+            zip: "",
+            phone: ""
+
           };
 
           // Post it!!

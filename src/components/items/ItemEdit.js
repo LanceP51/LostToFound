@@ -11,7 +11,8 @@ class ItemEdit extends Component {
     itemName: "",
     date: "",
     photo: "",
-    // categoryId: [],
+    categoryId: "",
+    parkId: "",
     statusId: [],
     loadingStatus: false,
     // selectedCategory:"",
@@ -46,7 +47,8 @@ class ItemEdit extends Component {
       itemName: this.state.itemName,
       date: this.state.date,
       photo: this.state.photo,
-      // categoryId: Number(this.state.selectedCategory),
+      categoryId: Number(this.state.categoryId),
+      parkId: Number(this.state.parkId),
       statusId: Number(this.state.selectedStatus)
     };
 
@@ -65,6 +67,8 @@ class ItemEdit extends Component {
           ownerEmail: item.ownerEmail,
           itemName: item.itemName,
           date: item.date,
+          parkId: item.parkId,
+          categoryId: item.categoryId,
           photo: item.photo,
           loadingStatus: false,
           selectedStatus: item.statusId
@@ -91,6 +95,7 @@ class ItemEdit extends Component {
                 id="ownerName"
                 as="textarea"
                 placeholder="Owner Name"
+                value={this.state.ownerName}
                 rows="1"
                 onChange={this.handleFieldChange}
               />
@@ -101,6 +106,7 @@ class ItemEdit extends Component {
                 id="ownerEmail"
                 type="email"
                 placeholder="name@example.com"
+                value={this.state.ownerEmail}
                 onChange={this.handleFieldChange}
               />
             </Form.Group>
@@ -127,14 +133,14 @@ class ItemEdit extends Component {
               <Form.Label>Status</Form.Label>
               <Form.Control
                 as="select"
-                id="statusId"
-                value={this.state.statusId}
+                id="selectedStatus"
+                value={this.state.selectedStatus}
                 onChange={this.handleFieldChange}
               >
                 <option>Select a Status</option>
                 {this.state.statusId.map(status => (
-                  <option key={status.id} value={status.type}>
-                    {status.selectedStatus}
+                  <option key={status.id} value={status.id}>
+                    {status.type}
                   </option>
                 ))}
               </Form.Control>

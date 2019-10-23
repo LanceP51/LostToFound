@@ -7,7 +7,8 @@ import auth0Client from "../login/Auth"
 
 class Items extends Component {
   state = {
-    items: []
+    items: [],
+    parkName: ""
   };
 
   handleDelete = (id) => {
@@ -27,7 +28,8 @@ class Items extends Component {
     ItemsMgr.getAll().then(items => {
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
       this.setState({
-        items: items
+        items: items,
+        parkName: items[0].park.parkName
       });
     });
   }
@@ -65,7 +67,7 @@ class Items extends Component {
         </div>
         <div>
           <Container className="home-containers">
-            <h2>All Items</h2>
+            <h2>All Items at {this.state.parkName}</h2>
             <Row className="home-items">
               <Col id="items-list-page-container">
                 {this.state.items.map(singleItem => (

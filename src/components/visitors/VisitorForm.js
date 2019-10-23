@@ -101,7 +101,7 @@ class VisitorForm extends Component {
               <Form.Control
                 as="select"
                 id="selectedPark"
-                value={this.state.parkId}
+                value={this.state.selectedPark}
                 onChange={this.handleFieldChange}
               ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
@@ -117,7 +117,7 @@ class VisitorForm extends Component {
                 as="select"
                 // multiple
                 id="selectedCategory"
-                value={this.state.categoryId}
+                value={this.state.selectedCategory}
                 onChange={this.handleFieldChange}
               >
                 <option>Select a Category</option>

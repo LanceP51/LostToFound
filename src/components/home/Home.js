@@ -36,7 +36,7 @@ class Home extends Component {
           </h4>
         </div>
         <Container className="home-containers">
-			<h2> Claimed Items</h2>
+			<h2> Claimed</h2>
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.claimedItems.map(singleItem => (
@@ -45,7 +45,7 @@ class Home extends Component {
           </Row>
         </Container>
 		<Container className="home-containers">
-			<h2> Donated Items</h2>
+			<h2> Donated</h2>
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.donatedItems.map(singleItem => (

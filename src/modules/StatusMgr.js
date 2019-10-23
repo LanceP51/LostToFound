@@ -9,7 +9,7 @@ export default {
     //fetch all statuses
     getAll() {
       return fetch(
-        `${remoteURL}/statuses}`
+        `${remoteURL}/statuses`
       ).then(result => result.json());
     }
   };

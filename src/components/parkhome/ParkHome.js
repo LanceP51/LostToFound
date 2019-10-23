@@ -139,7 +139,7 @@ class ParksHome extends Component {
               <Form.Control
                 as="select"
                 id="selectedPark"
-                value={this.state.parkId}
+                value={this.state.selectedPark}
                 onChange={this.handleFieldChange}
               ><option>Select a Park</option>
                 {this.state.parkId.map(park => (
