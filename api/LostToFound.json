@@ -133,12 +133,12 @@
       "type": "gear"
     },
     {
-      "id": 6,
-      "type": "pet"
+      "id": 4,
+      "type": "park purchase"
     },
     {
-      "id": 4,
-      "type": "person"
+      "id": 7,
+      "type": "pet"
     },
     {
       "id": 6,
@@ -176,7 +176,7 @@
       "id": 3,
       "itemName": "3-yr old boy",
       "date": "2019-08-15",
-      "categoryId": 4,
+      "categoryId": 6,
       "photo": "https://i2-prod.mirror.co.uk/incoming/article13543374.ece/ALTERNATES/s615/3_Baby-with-avocadoed.jpg",
       "parkId": 4,
       "statusId": 3,
@@ -234,7 +234,7 @@
       "itemName": "Cat",
       "date": "2019-10-17",
       "photo": "https://media.mnn.com/assets/images/2014/11/hiking-cat.jpg.653x0_q80_crop-smart.jpg",
-      "categoryId": 6,
+      "categoryId": 7,
       "parkId": 1,
       "statusId": 5
     },
@@ -267,7 +267,7 @@
       "date": "2019-10-19",
       "photo": "https://static.toiimg.com/photo/54129365/Apple-IPad-3-32GB-WiFi.jpg",
       "categoryId": 2,
-      "parkId": null,
+      "parkId": 6,
       "statusId": 1,
       "id": 11
     },
