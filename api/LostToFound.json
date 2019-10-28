@@ -298,9 +298,9 @@
       "ownerEmail": "bill@me.com",
       "itemName": "Driver's License",
       "date": "2019-10-23",
-      "photo": "",
-      "categoryId": 3,
-      "parkId": 8,
+      "photo": "https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg",
+      "categoryId": 6,
+      "parkId": 1,
       "statusId": 1,
       "id": 14
     }

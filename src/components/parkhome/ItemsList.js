@@ -91,7 +91,6 @@ class Items extends Component {
           <Form.Group >
               <Form.Control
                 as="select"
-                // multiple
                 id="search"
                 value={this.state.selectedCategory}
                 onChange={this.handleFieldChange}
@@ -105,7 +104,6 @@ class Items extends Component {
             <Form.Group >
               <Form.Control
                 as="select"
-                // multiple
                 id="search"
                 value={this.state.selectedCategory}
                 onChange={this.handleFieldChange}
