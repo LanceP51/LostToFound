@@ -25,7 +25,7 @@ class VisitorForm extends Component {
     this.setState(stateToChange);
   };
 
-  /* method for validation, set loadingStatus, create listing object, invoke the jsonManager post method, and redirect to the full home page (later to confirmation page)*/
+  /* method for validation, set loadingStatus, create listing object, post method, and redirect to confirmation page)*/
 
   buildListing = evt => {
     evt.preventDefault();
@@ -51,7 +51,7 @@ class VisitorForm extends Component {
         statusId: +1
       };
 
-      // post the listing and redirect user to home (and later to a confirmation page)
+      // post the listing and redirect user to a confirmation page)
       ItemsMgr.post(newListing).then(() => this.props.history.push("/visitorform/confirm"));
     }
   };
@@ -76,7 +76,6 @@ class VisitorForm extends Component {
       <>
         <div id="visitor-form-container">
           <h4> What Did You Lose?</h4>
-          {/* from bootstrap // add name and date */}
           <Form>
             <Form.Group >
               <Form.Label>Name</Form.Label>
@@ -113,7 +112,6 @@ class VisitorForm extends Component {
               <Form.Label>Category</Form.Label>
               <Form.Control
                 as="select"
-                // multiple
                 id="selectedCategory"
                 value={this.state.selectedCategory}
                 onChange={this.handleFieldChange}

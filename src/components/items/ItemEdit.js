@@ -15,7 +15,6 @@ class ItemEdit extends Component {
     parkId: "",
     statusId: [],
     loadingStatus: false,
-    // selectedCategory:"",
     selectedStatus: ""
   };
 
@@ -30,8 +29,6 @@ class ItemEdit extends Component {
   editListing = evt => {
     evt.preventDefault();
     if (
-      // this.state.ownerName === "" ||
-      // this.state.ownerEmail === "" ||
       this.state.itemName === "" ||
       this.state.date === "" ||
       this.state.categoryId === "" ||
@@ -87,7 +84,6 @@ class ItemEdit extends Component {
       <>
         <div id="visitor-form-container">
           <h4> Update Form</h4>
-          {/* from bootstrap // add name and date */}
           <Form>
             <Form.Group>
               <Form.Label>Name</Form.Label>
@@ -145,21 +141,6 @@ class ItemEdit extends Component {
                 ))}
               </Form.Control>
             </Form.Group>
-            {/* <Form.Group >
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                as="select"
-                // multiple
-                id="selectedCategory"
-                value={this.state.categoryId}
-                onChange={this.handleFieldChange}
-              >
-                <option>Select a Category</option>
-                {this.state.categoryId.map(category => (
-                <option key={category.id} value={category.id}>
-              {category.type}</option>))}
-              </Form.Control>
-            </Form.Group> */}
             <Form.Group>
               <Form.Label>Photo url</Form.Label>
               <Form.Control

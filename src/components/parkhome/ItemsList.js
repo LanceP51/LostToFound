@@ -20,7 +20,6 @@ class Items extends Component {
 
   handleDelete = (id) => {
     //invoke the delete function and reload the page.
-    // const parkId = parseInt(localStorage.getItem("parkId"));
     ItemsMgr.delete(id).then(() => {
       ItemsMgr.getAll().then(items => {
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -31,14 +30,14 @@ class Items extends Component {
     });
   };
 
-  handleFilter = () => {
+  // handleFilter = () => {
     // if they type in search field and not the other two, then filter by search only and reset the other two fields
-    this.state.items.filter(items => items.itemName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.status.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.category.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
+    // this.state.items.filter(items => items.itemName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.status.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.category.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
     // if they use search and status filter then check those and clear category
     // if they use search and category filter, then check those and clear status
     // if they use status and category, then check those and clear search
     // if they use all three, then ...
-  };
+  // };
 
   handleFieldChange = evt => {
     const stateToChange = {};

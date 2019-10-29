@@ -75,6 +75,14 @@
     margin: 1%;
     margin-left: 92%
 }
+/* account notice location and format */
+#updateNotice{
+    margin-left: 50%;
+    margin-top: -3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: .75em;
+}
 /* search and filter layout */
 #search-filter{
     margin-left: 6%;

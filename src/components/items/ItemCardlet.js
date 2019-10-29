@@ -10,7 +10,6 @@ class ItemCardlet extends Component {
         <Card id="item-card" style={{ width: "18rem" }}>
           <Card.Img id="item-pic" variant="top" src={this.props.ItemProp.photo} />
           <Card.Body>
-            {/* <Card.Title>{this.props.ItemProp.itemName}</Card.Title> */}
           </Card.Body>
           <ListGroup className="list-group-flush">
           <Card.Title>{this.props.ItemProp.itemName}</Card.Title>

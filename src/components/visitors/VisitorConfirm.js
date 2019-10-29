@@ -5,7 +5,6 @@ class Confirmation extends Component {
   render() {
     return (
       <>
-        {/* from bootstrap */}
         <Jumbotron>
           <h1>This page confirms your submission.</h1>
           <p>
