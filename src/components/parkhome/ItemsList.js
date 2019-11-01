@@ -14,8 +14,6 @@ class Items extends Component {
     parkName: "",
     // search is an empty string for entered search criteria
     search: "",
-    // filterStatus: "",
-    // filterCategory: "",
     // categoryArr shows dropdown for all categories for filter
     categoryArr: [],
     // statusArr shows dropdown for all statuses for filter
