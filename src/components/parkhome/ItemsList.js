@@ -9,12 +9,16 @@ import StatusMgr from "../../modules/StatusMgr"
 
 class Items extends Component {
   state = {
+    // items array for all items for a given park
     items: [],
     parkName: "",
+    // search is an empty string for entered search criteria
     search: "",
-    filterStatus: "",
-    filterCategory: "",
+    // filterStatus: "",
+    // filterCategory: "",
+    // categoryArr shows dropdown for all categories for filter
     categoryArr: [],
+    // statusArr shows dropdown for all statuses for filter
     statusArr: []
   };
 
@@ -30,15 +34,7 @@ class Items extends Component {
     });
   };
 
-  // handleFilter = () => {
-    // if they type in search field and not the other two, then filter by search only and reset the other two fields
-    // this.state.items.filter(items => items.itemName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.status.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.category.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
-    // if they use search and status filter then check those and clear category
-    // if they use search and category filter, then check those and clear status
-    // if they use status and category, then check those and clear search
-    // if they use all three, then ...
-  // };
-
+  // handles change to state when entering info in a certain field
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
@@ -46,6 +42,7 @@ class Items extends Component {
   };
 
   componentDidMount() {
+    // mounts items to state and the park name to state
     ItemsMgr.getAll().then(items => {
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
       this.setState({
@@ -53,12 +50,14 @@ class Items extends Component {
         parkName: items[0].park.parkName
       });
     });
+    // mounts categories to state for dropdown
     CategoryMgr.getAll()
       .then(categories => {
         this.setState({
           categoryArr: categories
         });
       })
+      // mounts statuses to state for dropdown
       .then(() => StatusMgr.getAll())
       .then(statuses => {
         this.setState({
@@ -67,6 +66,7 @@ class Items extends Component {
       });
   }
 
+  // method for signout and clears session storage
   signOut = () => {
     auth0Client.signOut();
     sessionStorage.clear()
@@ -76,6 +76,7 @@ class Items extends Component {
   render() {
     return (
       <>
+      {/* logout calls signout method above */}
         <div id="logout-btn">
           <Button
             variant="secondary"
@@ -85,9 +86,11 @@ class Items extends Component {
             Logout
           </Button>
         </div>
+        {/* search box */}
         <div id="search-filter">
         <Form.Group ><Form.Control className="sf" type="text" id="search" onChange={this.handleFieldChange} placeholder="Search" /></Form.Group>
           <Form.Group >
+            {/* status filter */}
               <Form.Control
                 as="select"
                 id="search"
@@ -100,6 +103,7 @@ class Items extends Component {
               {status.type}</option>))}
               </Form.Control>
             </Form.Group>
+            {/* category filter */}
             <Form.Group >
               <Form.Control
                 as="select"
@@ -116,6 +120,7 @@ class Items extends Component {
         </div>
         <p id="searchTag">Use one of the filters above to search through items</p>
         <div>
+          {/* items container */}
           <Container className="home-containers">
             <h2>All Items at {this.state.parkName}</h2>
             <Row className="home-items">

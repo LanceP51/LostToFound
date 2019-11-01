@@ -4,7 +4,7 @@ import "../LostToFound.css";
 import {Link} from "react-router-dom"
 
 class ItemCard extends Component {
-
+// rendering Item cards per item using react bootstrap styling. This Item card with more info and buttons will be used for the logged in parks view.
   render() {
     return (
       <>
@@ -24,8 +24,10 @@ class ItemCard extends Component {
 							to={`/items/${this.props.ItemProp.id}/edit`}
 							variant="link"
 						>
+              {/* update/edit btn that brings user to an item specific edit page */}
 							Update
 						</Link>
+            {/* btn deletes item */}
 						<Button
 							type="button"
 							onClick={() => {

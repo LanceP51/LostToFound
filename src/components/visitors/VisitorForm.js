@@ -7,29 +7,34 @@ import ParksMgr from "../../modules/ParksMgr";
 
 class VisitorForm extends Component {
   state = {
+    // empty strings for entering info in form
     ownerName: "",
     ownerEmail: "",
     itemName: "",
     date: "",
     photo: "",
+    // arrays for category and park dropdowns
     categoryId: [],
     parkId: [],
     loadingStatus: false,
+    // chosen park and category
     selectedPark:"",
     selectedCategory:""
   };
 
+  // handles field changes from fields
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
 
-  /* method for validation, set loadingStatus, create listing object, post method, and redirect to confirmation page)*/
+  /* method for validation, set loadingStatus, create listing object, post method, and redirect to confirmation page*/
 
   buildListing = evt => {
     evt.preventDefault();
     if (
+      // conditional for checking that all required fields are entered
       this.state.ownerName === "" ||
       this.state.ownerEmail === "" ||
       this.state.itemName === "" ||
@@ -39,6 +44,7 @@ class VisitorForm extends Component {
     ) {
       window.alert("Please input all criteria");
     } else {
+      // build new object for listing to post to server
       this.setState({ loadingStatus: true });
       const newListing = {
         ownerName: this.state.ownerName,
@@ -51,12 +57,13 @@ class VisitorForm extends Component {
         statusId: +1
       };
 
-      // post the listing and redirect user to a confirmation page)
+      // post the listing and redirect user to a confirmation page
       ItemsMgr.post(newListing).then(() => this.props.history.push("/visitorform/confirm"));
     }
   };
 
   componentDidMount() {
+    // mounts categories and parks to array in state for dropdowns
     CategoryMgr.getAll()
       .then(categories => {
         this.setState({
@@ -75,6 +82,7 @@ class VisitorForm extends Component {
     return (
       <>
         <div id="visitor-form-container">
+          {/* form for lost item */}
           <h4> What Did You Lose?</h4>
           <Form>
             <Form.Group >
@@ -128,6 +136,7 @@ class VisitorForm extends Component {
             </Form.Group>
           </Form>
           <Button
+          // btn will build listing and submit it to json server
             disabled={this.state.loadingStatus}
             onClick={this.buildListing}
             type="submit"

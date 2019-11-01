@@ -26,7 +26,7 @@ state={
         if (matchingPark.length === 0) {
           console.log("User not found, registering a new user!");
 
-          // Create a new user object to post to the db
+          // Create a new user object to post to the db, including some empty string criteria that we will need
           const newUser = {
             aud: auth0Client.getProfile().sub,
             name: auth0Client.getProfile().nickname,
@@ -40,7 +40,7 @@ state={
 
           };
 
-          // Post it!!
+          // Post park user!!
           fetch(`http://localhost:5002/parks`, {
             method: "POST",
             headers: {
@@ -56,6 +56,7 @@ state={
                 parsedUser
               );
               sessionStorage.setItem("credentials", parsedUser.id);
+              // send new park to login/account dashboard to finish input of all criteria
               this.props.history.replace("/login");
             });
         } else {
@@ -65,6 +66,7 @@ state={
             matchingPark[0].id
           );
           sessionStorage.setItem("credentials", matchingPark[0].id);
+          // send returning user to home page for logged in parks
           this.props.history.replace("/parkhome");
         }
       });

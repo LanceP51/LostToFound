@@ -16,7 +16,9 @@ class Login extends Component {
     phone: "",
     loadingStatus: false,
     parkId: [],
+    // new park object
     newPark: {},
+    // these from Auth0 from json server
     id: "",
     name: "",
     aud: ""
@@ -33,6 +35,7 @@ class Login extends Component {
   buildNewPark = evt => {
     evt.preventDefault();
     if (
+      // conditional to be sure all required fields are filled in
       this.state.parkName === "" ||
       this.state.email === "" ||
       this.state.streetAddress === "" ||
@@ -44,6 +47,7 @@ class Login extends Component {
     ) {
       window.alert("Please fill in all criteria and click checkbox once you have double checked all fields.");
     } else {
+      // creates the rest of the info in an object to be sent to server
       const newPark = {
         aud: this.state.aud,
         id: this.state.id,
@@ -56,26 +60,27 @@ class Login extends Component {
         zip: this.state.zip,
         phone: this.state.phone
       };
-
+// calls Update/PUT method in ParksMgr.js and then send user to parkhome page
       ParksMgr.update(newPark)
         .then(() => this.props.history.push("/parkhome"));
     }
   };
 
+  // method to signout of site and clear credentials from storage
   signOut = () => {
     auth0Client.signOut();
     sessionStorage.clear()
     this.props.history.replace("/");
   };
 
-
+// mounts parks for the dropdown to form
   componentDidMount() {
     ParksMgr.getAll().then(parks => {
-      parks.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
       this.setState({
         parkId: parks
       });
     });
+    // fetches the logged in park from session storage for use in state and in form
     ParksMgr.getOneBySession().then(park => {
       this.setState({
         id: park.id,
@@ -96,11 +101,13 @@ class Login extends Component {
   render() {
     return (
       <>
+      {/* logout btn calls signout method above */}
 	  <div id="logout-btn">
         <Button variant="secondary" size="sm"  onClick={this.signOut}>Logout</Button>
         </div>
         <div id="register-container">
           <h3>Account Dashboard</h3>
+          {/* account form prefilling any content already available */}
           <Form>
             <Form.Row>
               <Form.Group>
@@ -129,6 +136,7 @@ class Login extends Component {
                 <Form.Control
                 onChange={this.handleFieldChange} value={this.state.state} id="state" as="select">
                   <option>State</option>
+                  {/* list of all the states to choose from */}
                   <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="WY">Wyoming</option>
                   ))}
                 </Form.Control>

@@ -3,7 +3,7 @@ import {Card, ListGroup, ListGroupItem, Button} from "react-bootstrap";
 import "../LostToFound.css";
 
 class ItemCardlet extends Component {
-
+// this Cardlet page creates Item Cards with less content to be used on all visitor/customer focused pages
   render() {
     return (
       <>

@@ -3,6 +3,7 @@ import {Jumbotron, Button} from "react-bootstrap";
 
 class Confirmation extends Component {
   render() {
+    // rendering a confirmation page after visitor submits an item. shows a link also to home page
     return (
       <>
         <Jumbotron>

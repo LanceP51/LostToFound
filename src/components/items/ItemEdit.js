@@ -5,29 +5,33 @@ import ItemsMgr from "../../modules/ItemsMgr";
 import StatusMgr from "../../modules/StatusMgr";
 
 class ItemEdit extends Component {
+  // shows all items or an empty string/array for dropdowns, chosen items, or filled-in content
   state = {
     ownerName: "",
     ownerEmail: "",
     itemName: "",
     date: "",
     photo: "",
+    // chosen category
     categoryId: "",
+    // chosen park
     parkId: "",
+    // array of statuses
     statusId: [],
     loadingStatus: false,
     selectedStatus: ""
   };
-
+// handles change to state when new info entered into specific fields
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
 
-  /* method for validation, create listing object, post method, and redirect to confirmation page)*/
-
+  /* method for validation, edit listing object, edit/PUT method on ItemsMgr.js, and redirect to confirmation page*/
   editListing = evt => {
     evt.preventDefault();
+    // conditional to make sure all required fields are filled in
     if (
       this.state.itemName === "" ||
       this.state.date === "" ||
@@ -36,6 +40,7 @@ class ItemEdit extends Component {
     ) {
       window.alert("Please input all criteria");
     } else {
+      // if required fields done, then allow submit and created object to edit object on server
     this.setState({ loadingStatus: true });
     const editedListing = {
       id: this.props.match.params.itemId,
@@ -49,7 +54,7 @@ class ItemEdit extends Component {
       statusId: Number(this.state.selectedStatus)
     };
 
-    // update the listing and redirect user to a confirmation page)
+    // update the listing and redirect user to a confirmation page
     ItemsMgr.edit(editedListing).then(() =>
       this.props.history.push("/visitorform/confirm")
     );
@@ -57,6 +62,7 @@ class ItemEdit extends Component {
   };
 
   componentDidMount() {
+    // mounts the chosen item to edit to state
     ItemsMgr.getOne(this.props.match.params.itemId)
       .then(item => {
         this.setState({
@@ -71,6 +77,7 @@ class ItemEdit extends Component {
           selectedStatus: item.statusId
         });
       })
+      // mounts status dropdown to state
       .then(StatusMgr.getAll)
       .then(statuses => {
         this.setState({
@@ -82,6 +89,7 @@ class ItemEdit extends Component {
   render() {
     return (
       <>
+      {/* update form */}
         <div id="visitor-form-container">
           <h4> Update Form</h4>
           <Form>
@@ -134,6 +142,7 @@ class ItemEdit extends Component {
                 onChange={this.handleFieldChange}
               >
                 <option>Select a Status</option>
+                {/* maps through statuses array to list them in dropdown */}
                 {this.state.statusId.map(status => (
                   <option key={status.id} value={status.id}>
                     {status.type}
@@ -154,6 +163,7 @@ class ItemEdit extends Component {
           </Form>
           <Button
             disabled={this.state.loadingStatus}
+            // btn calls on method to edit on server
             onClick={this.editListing}
             type="submit"
           >

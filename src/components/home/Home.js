@@ -7,13 +7,14 @@ import ItemCardlet from "../items/ItemCardlet"
 import ItemsMgr from "../../modules/ItemsMgr"
 
 class Home extends Component {
-
+// shows all cardlets from ItemCardlet.js which have claimed or donated status
   state = {
     claimedItems: [],
     donatedItems: []
   };
 
   componentDidMount() {
+    // calls on ItemsMgr to fetch claimed and donated items from json through query strings and sets them to state
     ItemsMgr.getClaimed().then(items => {
       this.setState({
         claimedItems: items
@@ -29,12 +30,14 @@ class Home extends Component {
   render() {
     return (
       <>
+      {/* background image and text slogan */}
         <div className="background-container">
           <img id="backgroundHome" src={backgroundPhoto} alt="mountain"></img>
           <h4 className="centered-text">
             <img id="slogan-img" src={slogan} alt="slogan"></img>
           </h4>
         </div>
+        {/* claimed items container */}
         <Container className="home-containers">
 			<h2> Claimed</h2>
           <Row className="home-items">
@@ -44,6 +47,7 @@ class Home extends Component {
                 ))}</Col>
           </Row>
         </Container>
+        {/* donated items container */}
 		<Container className="home-containers">
 			<h2> Donated</h2>
           <Row className="home-items">

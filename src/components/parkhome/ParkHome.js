@@ -9,28 +9,34 @@ import auth0Client from "../login/Auth";
 
 class ParksHome extends Component {
   state = {
+    // empty strings for entering items criteria into state
     itemName: "",
     date: "",
     photo: "",
+    // array of categories and parks for dropdowns
     categoryId: [],
     parkId: [],
     loadingStatus: false,
+    // for selected park and category
     selectedPark: "",
     selectedCategory: "",
+    // state for items that are still lost
     items: []
   };
 
+  // handles field changes to state
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
 
-  /* method for validation, set loadingStatus, create listing object, invoke post method, and redirect to confirmation page)*/
+  /* method for validation, set loadingStatus, create listing object, invoke post method, and redirect to confirmation page*/
 
   buildListing = evt => {
     evt.preventDefault();
     if (
+      // conditional to be sure all required fields are entered
       this.state.itemName === "" ||
       this.state.date === "" ||
       this.state.selectedCategory === "" ||
@@ -39,6 +45,7 @@ class ParksHome extends Component {
       window.alert("Please input all criteria");
     } else {
       this.setState({ loadingStatus: true });
+      // conditional to set stock image if form did not include an image url. this will choose a stock image based on category
       let photoUrl=""
       if(this.state.photo==="" && this.state.selectedCategory==3){photoUrl="https://images.all-free-download.com/images/graphiclarge/orange_gear_icon_vector_280682.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==2){photoUrl="https://icon-library.net/images/electronics-icon-png/electronics-icon-png-3.jpg"}
@@ -47,6 +54,7 @@ class ParksHome extends Component {
       else if(this.state.photo==="" && this.state.selectedCategory==7){photoUrl="https://icon-library.net/images/dog-icon/dog-icon-4.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==6){photoUrl="https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg"}
       else {photoUrl="http://clipart-library.com/img1/712022.png"};
+      // build new listing object for submission
       const newListing = {
         ownerName: "",
         ownerEmail: "",
@@ -58,24 +66,27 @@ class ParksHome extends Component {
         statusId: +2
       };
 
-      // post the listing and redirect user to a confirmation page
+      // post the listing and redirect user to all items page
       ItemsMgr.post(newListing).then(() => this.props.history.push("/items"));
     }
   };
 
   componentDidMount() {
+    // mount categories to state for cropdown
     CategoryMgr.getAll()
       .then(categories => {
         this.setState({
           categoryId: categories
         });
       })
+      // mount parks to state for dropdown
       .then(() => ParksMgr.getAll())
       .then(parks => {
         this.setState({
           parkId: parks
         });
       })
+      // mount items to state to show all still lost items
       .then(() => ItemsMgr.getStillLost())
       .then(items => {
         this.setState({
@@ -84,6 +95,7 @@ class ParksHome extends Component {
       });
   }
 
+  // signout method clears session storage
   signOut = () => {
     auth0Client.signOut();
     sessionStorage.clear()
@@ -93,10 +105,12 @@ class ParksHome extends Component {
   render() {
     return (
       <>
+      {/* logout btn call signout method from above */}
 	  <div id="logout-btn">
         <Button variant="secondary" size="sm"  onClick={this.signOut}>Logout</Button>
         </div>
         <div id="visitor-form-container">
+          {/* form for lost item */}
           <h4> What Did You Find?</h4>
           <Form>
             <Form.Group>
@@ -166,6 +180,7 @@ class ParksHome extends Component {
             Post
           </Button>
         </div>
+        {/* items container for items still lost */}
         <div id="still-lost-container">
           <Container className="home-containers">
             <h2> Still Lost</h2>
