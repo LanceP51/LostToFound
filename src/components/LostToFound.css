@@ -1,15 +1,10 @@
 /* home background img */
 #backgroundHome{
-    /* width: 70%;
-    border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3%; */
     display: block;
     width: 100%;
     fill-opacity: 75%;
     background: linear-gradient(#004092, #020202, transparent);
-    box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);
+    box-shadow: 10px 20px 25px 0px rgba(0,0,0,.8);
 
 }
 /* home text img container */
