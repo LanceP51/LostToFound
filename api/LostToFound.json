@@ -204,17 +204,6 @@
       "id": 7
     },
     {
-      "id": 8,
-      "ownerName": "",
-      "ownerEmail": "",
-      "itemName": "Cat",
-      "date": "2019-10-17",
-      "photo": "https://media.mnn.com/assets/images/2014/11/hiking-cat.jpg.653x0_q80_crop-smart.jpg",
-      "categoryId": 7,
-      "parkId": 4,
-      "statusId": 5
-    },
-    {
       "id": 9,
       "ownerName": "Joe",
       "ownerEmail": "joe@me.com",
@@ -323,6 +312,28 @@
       "parkId": 6,
       "statusId": 2,
       "id": 18
+    },
+    {
+      "id": 19,
+      "ownerName": "Judy",
+      "ownerEmail": "todd@me.com",
+      "itemName": "Hiking Shoes size 9",
+      "date": "2019-11-04",
+      "photo": "https://bestoutdoormarket.com/wp-content/uploads/2018/12/745358944-1.jpg",
+      "categoryId": 1,
+      "parkId": 4,
+      "statusId": 4
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Climbing Pick",
+      "date": "2019-11-02",
+      "photo": "https://i.pinimg.com/originals/82/15/1c/82151c0eb5e48e2fb5c6d7918f6d7fd6.jpg",
+      "categoryId": 3,
+      "parkId": 4,
+      "statusId": 2,
+      "id": 20
     }
   ]
 }
