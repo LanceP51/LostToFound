@@ -71,30 +71,6 @@
       "state": "SD",
       "zip": "13000",
       "phone": "1-605-574-2523"
-    },
-    {
-      "aud": "auth0|5db08d9f15ab970c65ae5ff4",
-      "id": 7,
-      "name": "lance",
-      "parkName": "Lance#2",
-      "email": "lance2@me.com",
-      "streetAddress": "409 Lower Ter",
-      "city": "Huntington",
-      "state": "WV",
-      "zip": "25705",
-      "phone": "3045614944"
-    },
-    {
-      "aud": "auth0|5db0a8f36aea6b0c655f1386",
-      "id": 8,
-      "name": "me",
-      "parkName": "Coonskin Park",
-      "email": "coonskin@park.gov",
-      "streetAddress": " 2000 Coonskin Dr",
-      "city": "Charleston",
-      "state": "WV",
-      "zip": "25311",
-      "phone": "(304) 341-8000"
     }
   ],
   "statuses": [
