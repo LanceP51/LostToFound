@@ -1,0 +1,119 @@
+/* home background img */
+#backgroundHome{
+    display: block;
+    width: 100%;
+    fill-opacity: 75%;
+    background: linear-gradient(#004092, #020202, transparent);
+    box-shadow: 10px 20px 25px 0px rgba(0,0,0,.8);
+
+}
+/* home text img container */
+.background-container {
+    position: top;
+    text-align: center;
+    color: white;
+  }
+  /* home page slogan image position */
+  #slogan-img{
+      width: 145%;
+      margin-left: -25%;
+      margin-top: 0%;
+  }
+  /* Centered text */
+.centered-text {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2em;
+    font-style: oblique;
+  }
+  /* home containers border and margin */
+  .home-containers {
+      border: 3px solid black;
+      margin: 7%
+  }
+  /* home cards in containers spacing */
+  .home-items {
+      margin:1%;
+  }
+  /* item card margins */
+  #item-card{
+      margin: 2%;
+      padding: 2%;
+  }
+  /* container for visitor lost and found form */
+  #visitor-form-container{
+      border: 2px solid black;
+      padding: 3%;
+      margin: 25%;
+      margin-top:1%
+  }
+  /* login and register containers */
+  #login-container{
+      border: 3px solid black;
+      margin: 25%;
+      margin-top:8%;
+      margin-bottom: 10%;
+      padding: 3%;
+  }
+  #register-container{
+    border: 3px solid black;
+    margin: 15%;
+    margin-top:4%;
+    margin-bottom: 5%;
+    padding: 3%;
+}
+/* logout button position */
+#logout-btn{
+    margin: 1%;
+    margin-left: 92%
+}
+/* account notice location and format */
+#updateNotice{
+    margin-left: 50%;
+    margin-top: -3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: .75em;
+}
+/* search and filter layout */
+#search-filter{
+    margin-left: 6%;
+    margin-right: 12%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#search{
+    width: 140%;
+}
+#searchTag{
+    text-align: center;
+    margin-top: -1em;
+    font-size: .8em;
+}
+.sf{
+    margin: 2%;
+}
+/* layout of items on itemlist.js */
+#items-list-page-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 1%;
+}
+/* resize item photos */
+#item-pic{
+    width: 80%;
+    height: auto;
+    margin:auto;
+}
+/* still lost container margin */
+#still-lost-container{
+    margin-top: -15%
+}
+/* progress bar margins */
+#progress{
+    margin: 5em;
+}

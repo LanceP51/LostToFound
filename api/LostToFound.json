@@ -1,0 +1,328 @@
+{
+  "parks": [
+    {
+      "aud": "google-oauth2|107521547695229259434",
+      "id": 1,
+      "name": "spectormade",
+      "parkName": "Lance's Park",
+      "email": "appleguy05@live.com",
+      "streetAddress": "409 Lower Ter",
+      "city": "Huntington",
+      "state": "WV",
+      "zip": "25705",
+      "phone": "1-304-561-4944"
+    },
+    {
+      "aud": "auth0|5db0556015ab970c65ae59a8",
+      "id": 2,
+      "name": "grandcanyon",
+      "parkName": "Grand Canyon National Park",
+      "email": "grandcanyon@park.gov",
+      "streetAddress": "S Entrance Rd",
+      "city": "Grand Canyon Village",
+      "state": "AZ",
+      "zip": "86023",
+      "phone": "1-928-638-7888"
+    },
+    {
+      "aud": "auth0|5db0561707b15d0dc9af0159",
+      "id": 3,
+      "name": "yosemite",
+      "parkName": "Yosemite National Park",
+      "email": "yosemite@park.gov",
+      "streetAddress": "Yosemite National Park Rd",
+      "city": "Yosemite Valley",
+      "state": "CA",
+      "zip": "95389",
+      "phone": "1-209-372-0200"
+    },
+    {
+      "aud": "auth0|5db056d407b15d0dc9af016c",
+      "id": 4,
+      "name": "sequioa",
+      "parkName": "Sequioa National Park",
+      "email": "sequioa@park.gov",
+      "streetAddress": "47050 Generals Highway",
+      "city": "Three Rivers",
+      "state": "CA",
+      "zip": "93262",
+      "phone": "1-559-565-3341"
+    },
+    {
+      "aud": "auth0|5db0576678ab5e0c63efc7c3",
+      "id": 5,
+      "name": "joshuatree",
+      "parkName": "Joshua Tree National Park",
+      "email": "joshuatree@park.gov",
+      "streetAddress": "74485 National Park Drive",
+      "city": "Twentynine Palms",
+      "state": "CA",
+      "zip": "92252",
+      "phone": "1-760-367-5500"
+    },
+    {
+      "aud": "auth0|5db057e115ab970c65ae59de",
+      "id": 6,
+      "name": "rushmore",
+      "parkName": "Mount Rushmore National Memorial",
+      "email": "rushmore@park.gov",
+      "streetAddress": "13000 Highway 244",
+      "city": "Keystone",
+      "state": "SD",
+      "zip": "13000",
+      "phone": "1-605-574-2523"
+    }
+  ],
+  "statuses": [
+    {
+      "id": 3,
+      "type": "claimed"
+    },
+    {
+      "id": 5,
+      "type": "donated"
+    },
+    {
+      "id": 2,
+      "type": "found"
+    },
+    {
+      "id": 1,
+      "type": "lost"
+    },
+    {
+      "id": 4,
+      "type": "shipped"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "type": "clothing"
+    },
+    {
+      "id": 2,
+      "type": "electronics"
+    },
+    {
+      "id": 3,
+      "type": "gear"
+    },
+    {
+      "id": 4,
+      "type": "park purchase"
+    },
+    {
+      "id": 7,
+      "type": "pet"
+    },
+    {
+      "id": 6,
+      "type": "personal item"
+    },
+    {
+      "id": 5,
+      "type": "toy"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "itemName": "water bottle",
+      "date": "2019-08-15",
+      "categoryId": 3,
+      "photo": "https://i.stpost.com/nathan-flipstream-tritan-water-bottle-750ml-in-blue-radiance~p~643jk_01~1500.2.jpg",
+      "parkId": 2,
+      "statusId": 3,
+      "ownerEmail": "",
+      "ownerName": ""
+    },
+    {
+      "id": 2,
+      "itemName": "climbing harness",
+      "date": "2019-08-15",
+      "categoryId": 3,
+      "photo": "https://expertclimbers.com/wp-content/uploads/2019/05/Black-Diamond-Momentum-Harness-Kids-750x750.jpg",
+      "parkId": 4,
+      "statusId": 3,
+      "ownerEmail": "",
+      "ownerName": ""
+    },
+    {
+      "id": 3,
+      "itemName": "3-yr old boy",
+      "date": "2019-08-15",
+      "categoryId": 6,
+      "photo": "https://i2-prod.mirror.co.uk/incoming/article13543374.ece/ALTERNATES/s615/3_Baby-with-avocadoed.jpg",
+      "parkId": 4,
+      "statusId": 3,
+      "ownerEmail": "jane@me.com",
+      "ownerName": "Jane"
+    },
+    {
+      "id": 4,
+      "itemName": "camera",
+      "date": "2019-08-15",
+      "categoryId": 2,
+      "photo": "https://blueprint-api-production.s3.amazonaws.com/uploads/card/image/942170/1dba9c57-5529-43d7-8a33-c4caf6ec9cb9.jpg",
+      "parkId": 5,
+      "statusId": 5,
+      "ownerEmail": "",
+      "ownerName": ""
+    },
+    {
+      "id": 5,
+      "itemName": "stuffed animal",
+      "date": "2019-08-15",
+      "categoryId": 5,
+      "photo": "https://dimg.dillards.com/is/image/DillardsZoom/zoom/melissa--doug-penguin-giant-stuffed-animal/05363737_zi.jpg",
+      "parkId": 2,
+      "statusId": 5,
+      "ownerEmail": "",
+      "ownerName": ""
+    },
+    {
+      "id": 6,
+      "itemName": "hiking stick",
+      "date": "2019-08-15",
+      "categoryId": 3,
+      "photo": "https://www.dhresource.com/0x0s/f2-albu-g7-M00-5F-33-rBVaSltHScaAS_HRAACo74WRx_A150.jpg/outdoor-adjustable-hiking-walking-sticks.jpg",
+      "parkId": 4,
+      "statusId": 2,
+      "ownerEmail": "",
+      "ownerName": ""
+    },
+    {
+      "ownerName": "Zack",
+      "ownerEmail": "zack@me.com",
+      "itemName": "GoPro",
+      "date": "2019-10-10",
+      "photo": "https://gopro.com/dw/image/v2/AASJ_PRD/on/demandware.static/-/Sites-gopro-products/default/dw013229ac/thumbnails/HERO7_Black_0@2x.png?sw=270&sh=270&sm=fit",
+      "categoryId": 2,
+      "parkId": 4,
+      "statusId": 1,
+      "id": 7
+    },
+    {
+      "id": 8,
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Cat",
+      "date": "2019-10-17",
+      "photo": "https://media.mnn.com/assets/images/2014/11/hiking-cat.jpg.653x0_q80_crop-smart.jpg",
+      "categoryId": 7,
+      "parkId": 4,
+      "statusId": 5
+    },
+    {
+      "id": 9,
+      "ownerName": "Joe",
+      "ownerEmail": "joe@me.com",
+      "itemName": "Leki Hiking Poles",
+      "date": "2019-10-08",
+      "photo": "https://www.lowergear.com/210-large_default/trekking-poles-pair.jpg",
+      "categoryId": 3,
+      "parkId": 4,
+      "statusId": 1
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "MAGA Hat",
+      "date": "2019-10-23",
+      "photo": "https://images-na.ssl-images-amazon.com/images/I/61-UFS1KcCL._UX679_.jpg",
+      "categoryId": 1,
+      "parkId": 6,
+      "statusId": 2,
+      "id": 10
+    },
+    {
+      "ownerName": "Joe",
+      "ownerEmail": "joe@me.com",
+      "itemName": "iPad 2",
+      "date": "2019-10-19",
+      "photo": "https://static.toiimg.com/photo/54129365/Apple-IPad-3-32GB-WiFi.jpg",
+      "categoryId": 2,
+      "parkId": 6,
+      "statusId": 1,
+      "id": 11
+    },
+    {
+      "ownerName": "Woody",
+      "ownerEmail": "woody@me.com",
+      "itemName": "Forky",
+      "date": "2019-10-22",
+      "photo": "https://s7d9.scene7.com/is/image/JCPenney/DP0808201913024964M?resmode=sharp2&op_sharpen=1&wid=550&hei=550",
+      "categoryId": 5,
+      "parkId": 5,
+      "statusId": 1,
+      "id": 12
+    },
+    {
+      "ownerName": "Mrs. Potato Head",
+      "ownerEmail": "potato@me.com",
+      "itemName": "Mr. Potato Head",
+      "date": "2019-10-01",
+      "photo": "https://d3nevzfk7ii3be.cloudfront.net/igi/JPpjbao64ZTJAPmV.large",
+      "categoryId": 5,
+      "parkId": 4,
+      "statusId": 1,
+      "id": 13
+    },
+    {
+      "ownerName": "Bill",
+      "ownerEmail": "bill@me.com",
+      "itemName": "Driver's License",
+      "date": "2019-10-23",
+      "photo": "https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg",
+      "categoryId": 6,
+      "parkId": 4,
+      "statusId": 1,
+      "id": 14
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Flask",
+      "date": "2019-10-26",
+      "photo": "https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg",
+      "categoryId": 6,
+      "parkId": 4,
+      "statusId": 2,
+      "id": 15
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Marshall Sweater",
+      "date": "2019-10-01",
+      "photo": "https://image.flaticon.com/icons/svg/189/189568.svg",
+      "categoryId": 1,
+      "parkId": 4,
+      "statusId": 2,
+      "id": 16
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Daypack",
+      "date": "2019-10-16",
+      "photo": "https://images.all-free-download.com/images/graphiclarge/orange_gear_icon_vector_280682.jpg",
+      "categoryId": 3,
+      "parkId": 4,
+      "statusId": 2,
+      "id": 17
+    },
+    {
+      "ownerName": "",
+      "ownerEmail": "",
+      "itemName": "Refrigerator Magnet",
+      "date": "2019-10-24",
+      "photo": "https://i2.wp.com/littleastronaut.creativecollagemedia.com/wp-content/uploads/2018/10/PURCHASE-ICON-BLUE.jpg?w=512&ssl=1",
+      "categoryId": 4,
+      "parkId": 6,
+      "statusId": 2,
+      "id": 18
+    }
+  ]
+}
