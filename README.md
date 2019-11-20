@@ -1,5 +1,5 @@
 # Overview of "The Great Lost + Found"
-    My app will allow parks to login and post, manage, and delete items that have been lost on their property. The app will allow individuals to post requests for missing items. Parks will be able to filter items by various criteria. The app will alert visitors of actions taken on their items.
+    My app will allow parks to login and post, manage, and delete items that have been lost on their property. The app will allow individuals to post requests for missing items. Parks will be able to filter items by various criteria.
 ---
 ### Creation of app
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -12,7 +12,7 @@
 ![Entity Relationship](https://drive.google.com/file/d/1hpTB8c_IunZb5Rj8DlRGzxoerQAkW2x7/view?usp=sharing "The Great Lost and Found")
 
 ---
-No api's are being used currently.
+####No api's are being used currently.
 ---
 ### Demo
 1. In the project directory, you should run: `npm install`
