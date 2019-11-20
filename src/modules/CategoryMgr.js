@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:5002"
+const remoteURL = "https://git.heroku.com/lost-to-found-api";
 
 export default {
   //fetch one category by id
