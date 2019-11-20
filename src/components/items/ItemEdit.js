@@ -56,7 +56,7 @@ class ItemEdit extends Component {
 
     // update the listing and redirect user to a confirmation page
     ItemsMgr.edit(editedListing).then(() =>
-      this.props.history.push("/visitorform/confirm")
+      this.props.history.push("/items")
     );
     }
   };

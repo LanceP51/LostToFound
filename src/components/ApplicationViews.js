@@ -56,7 +56,8 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/items"
+          exact
+          path="/items"
           render={props => {
             if (sessionStorage.getItem("credentials") !== null) {
               return <ItemsList {...props} />;
@@ -67,7 +68,7 @@ class ApplicationViews extends Component {
           }}
         />
 
-          <Route
+        <Route
           path="/items/:itemId(\d+)/edit"
           render={props => {
             if (sessionStorage.getItem("credentials") !== null) {
@@ -80,21 +81,18 @@ class ApplicationViews extends Component {
         />
 
         <Route
-          exact path="/visitorform"
+          exact
+          path="/visitorform"
           render={props => {
             return <VisitorForm {...props} />;
           }}
         />
 
         <Route
+          exact
           path="/visitorform/confirm"
           render={props => {
-            if (sessionStorage.getItem("credentials") !== null) {
-              return <Confirmation {...props} />;
-            } else {
-              auth0Client.signIn();
-              return null;
-            }
+            return <Confirmation {...props} />;
           }}
         />
       </React.Fragment>

@@ -53,7 +53,7 @@ class ParksHome extends Component {
       else if(this.state.photo==="" && this.state.selectedCategory==4){photoUrl="https://i2.wp.com/littleastronaut.creativecollagemedia.com/wp-content/uploads/2018/10/PURCHASE-ICON-BLUE.jpg?w=512&ssl=1"}
       else if(this.state.photo==="" && this.state.selectedCategory==7){photoUrl="https://icon-library.net/images/dog-icon/dog-icon-4.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==6){photoUrl="https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg"}
-      else {photoUrl="http://clipart-library.com/img1/712022.png"};
+      else {photoUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUpYyGuycHV-xbDYrIwTYXW1s8AWKY19t-K62i9M_d83Vy172g&s"};
       // build new listing object for submission
       const newListing = {
         ownerName: "",
