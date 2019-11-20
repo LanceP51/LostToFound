@@ -12,7 +12,7 @@
 ![Entity Relationship](https://drive.google.com/file/d/1hpTB8c_IunZb5Rj8DlRGzxoerQAkW2x7/view?usp=sharing "The Great Lost and Found")
 
 ---
-####No api's are being used currently.
+* No api's are being used currently.
 ---
 ### Demo
 1. In the project directory, you should run: `npm install`
