@@ -22,4 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/components/login/AuthConfig.js
+# not used in production branch for Heroku
+# /src/components/login/AuthConfig.js
