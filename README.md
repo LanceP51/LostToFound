@@ -17,7 +17,11 @@
 ### Demo
 1. In the project directory, you should run: `npm install`
 2. For the best demonstration of all of the features, a base profile has been built with starter data.
-Use:
+3. The "database" is a JSON file hosted off of json server port 5002. Launch this file from the api directory using json-server -p 5002 -w LostToFound.json
+
+*Alternatively, visit the deployed site at the-great-lost-and-found.herokuapp.com/ on your laptop at any time.
+
+Use Login:
 username: sequioa@park.gov
 password: Sequioa1!
 
