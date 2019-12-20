@@ -1,5 +1,5 @@
 # Overview of "The Great Lost + Found"
-    My app will allow parks to login and post, manage, and delete items that have been lost on their property. The app will allow individuals to post requests for missing items. Parks will be able to filter items by various criteria.
+My app will allow parks to login and post, manage, and delete items that have been lost on their property. The app will allow individuals to post requests for missing items. Parks will be able to filter items by various criteria.
 ---
 ### Creation of app
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -12,7 +12,7 @@
 ![Entity Relationship](https://drive.google.com/file/d/1hpTB8c_IunZb5Rj8DlRGzxoerQAkW2x7/view?usp=sharing "The Great Lost and Found")
 
 ---
-* No api's are being used currently.
+* No external api's are being used currently.
 ---
 ### Demo
 1. In the project directory, you should run: `npm install`
@@ -27,11 +27,23 @@ password: Sequioa1!
 
 #### Layout
 1. Home page displays all items on the app that have been marked as "claimed" or "donated" as a sort of splash page that shows that app's successful transactions.
+![home](/public/home.gif)
+
 2. Visitors tab directs customers to a form where they can submit lost item claims to the database.
+![loseform](/public/loseform.gif)
+
 3. Account/Register tab will allow parks to sign up as a new user and begin use of app or directs them to an Account Dashboard where they can fill in or update park info.
+![auth](/public/auth.gif)
+![account](/public/account.jpg)
+
 4. the Parks tab navbar dropdown gives three options
     1. "Home" shows a form for Parks to submit listings to database for item they have found in their parks. Followed by a list of items that have been submitted y visitors as lost but not yet found on property
+    ![findform](/public/findform.gif)
+    ![parkhome](/public/parkhome.gif)
+    
     2. "Items" shows a list of all items of any given status associated with the park who is logged in at the time. Parks can filter through these items y category or status.
+    ![filter](/public/filter.gif)
+    
     3. a link to external website for National Parks
 5. There is a Logout btn on the pages requiring login
 ---
