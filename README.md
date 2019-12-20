@@ -54,9 +54,6 @@ password: Sequioa1!
     ![parkhome](/public/parkhome.gif)
     &nbsp;
     
-    ![findform](/public/findform.gif)
-    &nbsp;
-    
     2. "Items" shows a list of all items of any given status associated with the park who is logged in at the time. Parks can filter through these items y category or status.
     &nbsp;
     
