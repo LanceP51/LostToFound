@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:5002"
+const remoteURL = "https://lost-to-found-api.herokuapp.com";
 
 export default {
     //fetch one Status by id

@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:5002"
+const remoteURL = "https://lost-to-found-api.herokuapp.com";
 
 export default {
   //fetch one category by id
@@ -22,16 +22,5 @@ export default {
       },
       body: JSON.stringify(newCategory)
     }).then(data => data.json());
-  },
-
-  //edit a category
-  // update(editedCategory) {
-  //   return fetch(`${remoteURL}/categories/${editedCategory.id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(editedCategory)
-  //   }).then(data => data.json());
-  // }
+  }
 };

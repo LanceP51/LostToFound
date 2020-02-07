@@ -149,17 +149,6 @@
       "ownerName": ""
     },
     {
-      "id": 3,
-      "itemName": "3-yr old boy",
-      "date": "2019-08-15",
-      "categoryId": 6,
-      "photo": "https://i2-prod.mirror.co.uk/incoming/article13543374.ece/ALTERNATES/s615/3_Baby-with-avocadoed.jpg",
-      "parkId": 4,
-      "statusId": 3,
-      "ownerEmail": "jane@me.com",
-      "ownerName": "Jane"
-    },
-    {
       "id": 4,
       "itemName": "camera",
       "date": "2019-08-15",

@@ -14,7 +14,7 @@ state={
     await auth0Client.handleAuthentication();
 
     // Needs to be refactored, put in its own module, etc
-    fetch(`http://localhost:5002/parks?aud=${auth0Client.getProfile().sub}`)
+    fetch(`https://lost-to-found-api.herokuapp.com/parks?aud=${auth0Client.getProfile().sub}`)
       .then(matchingPark => matchingPark.json())
       .then(matchingPark => {
         console.log(
@@ -41,7 +41,7 @@ state={
           };
 
           // Post park user!!
-          fetch(`http://localhost:5002/parks`, {
+          fetch(`https://lost-to-found-api.herokuapp.com/parks`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
