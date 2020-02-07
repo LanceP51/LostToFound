@@ -47,25 +47,25 @@ class ParksHome extends Component {
       this.setState({ loadingStatus: true });
       // conditional to set stock image if form did not include an image url. this will choose a stock image based on category
       let photoUrl=""
+
       if(this.state.photo==="" && this.state.selectedCategory==3){photoUrl="https://images.all-free-download.com/images/graphiclarge/orange_gear_icon_vector_280682.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==2){photoUrl="https://icon-library.net/images/electronics-icon-png/electronics-icon-png-3.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==1){photoUrl="https://image.flaticon.com/icons/svg/189/189568.svg"}
       else if(this.state.photo==="" && this.state.selectedCategory==4){photoUrl="https://i2.wp.com/littleastronaut.creativecollagemedia.com/wp-content/uploads/2018/10/PURCHASE-ICON-BLUE.jpg?w=512&ssl=1"}
       else if(this.state.photo==="" && this.state.selectedCategory==7){photoUrl="https://icon-library.net/images/dog-icon/dog-icon-4.jpg"}
       else if(this.state.photo==="" && this.state.selectedCategory==6){photoUrl="https://cdn.pixabay.com/photo/2019/01/04/01/37/wallet-3912327_960_720.jpg"}
-      else {photoUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUpYyGuycHV-xbDYrIwTYXW1s8AWKY19t-K62i9M_d83Vy172g&s"};
+      else if(this.state.photo==="" && this.state.selectedCategory==5){photoUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUpYyGuycHV-xbDYrIwTYXW1s8AWKY19t-K62i9M_d83Vy172g&s"};
       // build new listing object for submission
       const newListing = {
         ownerName: "",
         ownerEmail: "",
         itemName: this.state.itemName,
         date: this.state.date,
-        photo: photoUrl,
+        photo: this.state.photo,
         categoryId: Number(this.state.selectedCategory),
         parkId: Number(this.state.selectedPark),
         statusId: +2
       };
-
       // post the listing and redirect user to all items page
       ItemsMgr.post(newListing).then(() => this.props.history.push("/items"));
     }
