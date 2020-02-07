@@ -51,7 +51,7 @@ class VisitorForm extends Component {
         ownerEmail: this.state.ownerEmail,
         itemName: this.state.itemName,
         date: this.state.date,
-        photo: this.state.photo,
+        photo: this.state.photo != "" ? this.state.photo : "https://www.freeiconspng.com/uploads/no-image-icon-11.PNG",
         categoryId: Number(this.state.selectedCategory),
         parkId: Number(this.state.selectedPark),
         statusId: +1

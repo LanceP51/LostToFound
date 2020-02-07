@@ -61,7 +61,7 @@ class ParksHome extends Component {
         ownerEmail: "",
         itemName: this.state.itemName,
         date: this.state.date,
-        photo: this.state.photo,
+        photo: this.state.photo != "" ? this.state.photo : photoUrl,
         categoryId: Number(this.state.selectedCategory),
         parkId: Number(this.state.selectedPark),
         statusId: +2
