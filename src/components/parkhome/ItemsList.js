@@ -117,10 +117,11 @@ class Items extends Component {
             </Form.Group>
         </div>
         <p id="searchTag">Use one of the filters above to search through items</p>
+        <br />
         <div>
           {/* items container */}
           <Container className="home-containers">
-            <h2>All Items at {this.state.parkName}</h2>
+            <h2 className="titleLabel" >All Items at {this.state.parkName}</h2>
             <Row className="home-items">
               <Col id="items-list-page-container">
                 {this.state.items.filter(items => items.itemName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.status.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 || items.category.type.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)

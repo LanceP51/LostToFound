@@ -4,6 +4,8 @@ import "../../components/LostToFound.css";
 import ItemsMgr from "../../modules/ItemsMgr";
 import CategoryMgr from "../../modules/CategoryMgr";
 import ParksMgr from "../../modules/ParksMgr";
+import backgroundPhoto from "../home/mount-cascades-park.jpg";
+
 
 class VisitorForm extends Component {
   state = {
