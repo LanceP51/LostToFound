@@ -183,7 +183,7 @@ class ParksHome extends Component {
         {/* items container for items still lost */}
         <div id="still-lost-container">
           <Container className="home-containers">
-            <h2> Still Lost</h2>
+            <h2 className="titleLabel"> Still Lost</h2>
             <Row className="home-items">
               <Col id="items-list-page-container">
                 {this.state.items.map(singleItem => (

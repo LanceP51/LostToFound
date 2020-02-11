@@ -30,16 +30,18 @@ class Home extends Component {
   render() {
     return (
       <>
+      <img className="backgroundHome" src={backgroundPhoto} alt="mountain"></img>
       {/* background image and text slogan */}
         <div className="background-container">
-          <img id="backgroundHome" src={backgroundPhoto} alt="mountain"></img>
+
           <h4 className="centered-text">
             <img id="slogan-img" src={slogan} alt="slogan"></img>
           </h4>
         </div>
+        <br />
         {/* claimed items container */}
         <Container className="home-containers">
-			<h2> Claimed</h2>
+			<h2 className="titleLabel" > Claimed</h2>
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.claimedItems.map(singleItem => (
@@ -49,7 +51,7 @@ class Home extends Component {
         </Container>
         {/* donated items container */}
 		<Container className="home-containers">
-			<h2> Donated</h2>
+			<h2 className="titleLabel" > Donated</h2>
           <Row className="home-items">
             <Col id="items-list-page-container">
                 {this.state.donatedItems.map(singleItem => (
